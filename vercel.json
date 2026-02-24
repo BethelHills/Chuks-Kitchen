@@ -2,7 +2,6 @@
   "buildCommand": "cd chucks-kitchen-web && npm run build",
   "outputDirectory": "chucks-kitchen-web/dist",
   "installCommand": "cd chucks-kitchen-web && npm install",
-  "framework": null,
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
