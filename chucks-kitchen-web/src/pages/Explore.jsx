@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
-import CategoryCard from "../components/CategoryCard.jsx";
+import CategoryCard from "../components/CategoryCard";
 import MealCard from "../components/MealCard.jsx";
 
 const categories = [
@@ -25,7 +25,12 @@ export default function Explore() {
           <h2 className="section-title">Explore Menu</h2>
           <div className="grid cats">
             {categories.map((c, idx) => (
-              <CategoryCard key={`${c.title}-${idx}`} {...c} />
+              <CategoryCard
+                key={`${c.title}-${idx}`}
+                name={c.title}
+                image={c.img}
+                onClick={() => {}}
+              />
             ))}
           </div>
         </section>
