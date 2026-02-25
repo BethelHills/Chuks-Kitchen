@@ -10,7 +10,7 @@ const categories = [
   },
   {
     title: "Swallow & Soups",
-    img: "https://images.unsplash.com/photo-1604908176997-125f25cc500f?auto=format&fit=crop&w=1200&q=70",
+    img: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=400&q=80",
   },
   {
     title: "Grills & BBQ",
@@ -65,7 +65,7 @@ const meals = [
     title: "Egusi Soup & Pounded Yam",
     desc: "Rich and savory egusi soup with assorted meat, paired with fluffy pounded yam.",
     price: 4000,
-    img: "https://images.unsplash.com/photo-1604908176997-125f25cc500f?auto=format&fit=crop&w=1200&q=70",
+    img: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=400&q=80",
   },
 ];
 
