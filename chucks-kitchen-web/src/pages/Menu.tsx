@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Search } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams, Link } from 'react-router-dom';
 import { Input } from '@/components/ui/input';
 import FoodCard from '@/components/FoodCard';
 import CategoryCard from '@/components/CategoryCard';
@@ -18,6 +18,15 @@ const categoryImages: Record<string, string> = {
 const Menu = () => {
   const [search, setSearch] = useState('');
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [searchParams] = useSearchParams();
+  const categoryFromUrl = searchParams.get('category');
+
+  useEffect(() => {
+    if (categoryFromUrl && categories.includes(categoryFromUrl)) {
+      setActiveCategory(categoryFromUrl);
+    }
+  }, [categoryFromUrl]);
+
   const navigate = useNavigate();
 
   const filtered = menuItems.filter((item) => {
@@ -32,16 +41,13 @@ const Menu = () => {
     <div className="min-h-screen bg-background pb-24">
       {/* Header */}
       <div className="relative overflow-hidden">
-        <div
-          className="h-48 bg-cover bg-center"
-          style={{ backgroundImage: `url(${IMAGES.hero})` }}
-        >
+        <Link to="/home" className="block relative h-48 bg-cover bg-center cursor-pointer" style={{ backgroundImage: `url(${IMAGES.hero})` }}>
           <div className="absolute inset-0 bg-gradient-to-b from-foreground/60 to-foreground/80" />
           <div className="relative z-10 flex h-full flex-col justify-end p-5">
             <h1 className="font-display text-2xl font-bold text-primary-foreground">Chuka's Kitchen</h1>
             <p className="mt-1 text-sm text-primary-foreground/80">The Heart of Nigerian Home Cooking</p>
           </div>
-        </div>
+        </Link>
       </div>
 
       {/* Search */}
@@ -147,16 +153,16 @@ const Menu = () => {
       {/* Banner */}
       {!search && !activeCategory && (
         <section className="mt-8 px-5 pb-4">
-          <div className="relative overflow-hidden rounded-xl">
+          <Link to="/explore" className="block relative overflow-hidden rounded-xl group">
             <img
-            src={IMAGES.hero}
-            alt="New menu"
-            className="h-48 w-full object-cover"
-            onError={(e) => {
-              e.currentTarget.onerror = null;
-              e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23f3f4f6' width='400' height='200'/%3E%3Ctext fill='%239ca3af' font-size='16' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EMenu%3C/text%3E%3C/svg%3E";
-            }}
-          />
+              src={IMAGES.hero}
+              alt="New menu"
+              className="h-48 w-full object-cover transition-transform group-hover:scale-105"
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23f3f4f6' width='400' height='200'/%3E%3Ctext fill='%239ca3af' font-size='16' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EMenu%3C/text%3E%3C/svg%3E";
+              }}
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent" />
             <div className="absolute bottom-4 left-4 right-4">
               <h3 className="font-display text-xl font-bold text-primary-foreground">
@@ -165,11 +171,11 @@ const Menu = () => {
               <p className="mt-1 text-xs text-primary-foreground/80">
                 Explore exciting new dishes including jollof spaghetti and plantain fritters!
               </p>
-              <button className="mt-3 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground">
+              <span className="mt-3 inline-block rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground">
                 Explore New Items
-              </button>
+              </span>
             </div>
-          </div>
+          </Link>
         </section>
       )}
 

@@ -24,7 +24,9 @@ const Landing = () => {
 
       {/* Logo */}
       <div className="mt-6 flex justify-center">
-        <img src={IMAGES.logo} alt="Chuka's Kitchen" className="h-12 object-contain" />
+        <Link to="/">
+          <img src={IMAGES.logo} alt="Chuka's Kitchen" className="h-12 object-contain cursor-pointer" />
+        </Link>
       </div>
 
       {/* Hero */}
@@ -64,18 +66,18 @@ const Landing = () => {
 
       {/* Hero image */}
       <div className="mt-8 flex justify-center px-5 pb-6">
-        <div className="relative h-48 w-48">
-          <div className="absolute inset-0 rounded-full bg-primary/10" />
+        <Link to="/menu" className="block relative h-48 w-48 cursor-pointer group">
+          <div className="absolute inset-0 rounded-full bg-primary/10 transition-opacity group-hover:opacity-80" />
           <img
             src={IMAGES.hero}
             alt="Nigerian food spread"
-            className="absolute inset-2 rounded-full object-cover"
+            className="absolute inset-2 rounded-full object-cover transition-transform group-hover:scale-105"
             onError={(e) => {
               e.currentTarget.onerror = null;
               e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect fill='%23f3f4f6' width='200' height='200'/%3E%3Ctext fill='%239ca3af' font-size='14' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EFood%3C/text%3E%3C/svg%3E";
             }}
           />
-        </div>
+        </Link>
       </div>
     </div>
   );

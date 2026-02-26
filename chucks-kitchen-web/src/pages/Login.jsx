@@ -1,6 +1,7 @@
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import { Link, useNavigate } from "react-router-dom";
+import { IMAGES } from "@/lib/store";
 
 export default function Login() {
   const nav = useNavigate();
@@ -11,12 +12,10 @@ export default function Login() {
 
       <main className="page">
         <section className="split">
-          <div
-            className="split-left overlay-orange"
-            style={{
-              backgroundImage:
-                "url(https://images.unsplash.com/photo-1547573854-74d2a71d0826?auto=format&fit=crop&w=1600&q=70)",
-            }}
+          <Link
+            to="/menu"
+            className="split-left overlay-orange block cursor-pointer"
+            style={{ backgroundImage: `url(${IMAGES.hero})` }}
           >
             <div className="left-copy">
               <div className="left-title">Chuks Kitchen</div>
@@ -25,7 +24,7 @@ export default function Login() {
                 Sign up or log in to order your favorites today!
               </div>
             </div>
-          </div>
+          </Link>
 
           <div className="split-right">
             <div className="auth">

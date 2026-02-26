@@ -12,11 +12,13 @@ const NotFound = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-background px-5">
       <div className="text-center">
-        <img
-          src={IMAGES.hero}
-          alt="Chuka's Kitchen"
-          className="mx-auto mb-6 h-40 w-40 rounded-full object-cover"
-        />
+        <Link to="/" className="block mx-auto mb-6 w-fit cursor-pointer">
+          <img
+            src={IMAGES.hero}
+            alt="Chuka's Kitchen"
+            className="h-40 w-40 rounded-full object-cover transition-opacity hover:opacity-90"
+          />
+        </Link>
         <h1 className="mb-2 text-6xl font-bold text-primary">404</h1>
         <p className="mb-6 text-xl text-muted-foreground">Oops! Page not found</p>
         <p className="mb-6 text-sm text-muted-foreground">

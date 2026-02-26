@@ -1,82 +1,30 @@
+import { useNavigate, Link } from "react-router-dom";
 import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import CategoryCard from "../components/CategoryCard";
-import MealCard from "../components/MealCard.jsx";
+import FoodCard from "../components/FoodCard";
+import { IMAGES, categories, menuItems } from "@/lib/store";
 
-const categories = [
-  {
-    title: "Jollof Delights",
-    img: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1200&q=70",
-  },
-  {
-    title: "Swallow & Soups",
-    img: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=400&q=80",
-  },
-  {
-    title: "Grills & BBQ",
-    img: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=70",
-  },
-  {
-    title: "Sweet Treats",
-    img: "https://images.unsplash.com/photo-1546549032-9571cd6b27df?auto=format&fit=crop&w=1200&q=70",
-  },
-  {
-    title: "Jollof Delights",
-    img: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1200&q=70",
-  },
-  {
-    title: "Jollof Delights",
-    img: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1200&q=70",
-  },
-];
-
-const meals = [
-  {
-    title: "Spicy Tilapia Pepper Soup",
-    desc: "A comforting and spicy soup with tilapia fish, perfect for the Nigerian palette.",
-    price: 1500,
-    img: "https://images.unsplash.com/photo-1604909052743-94e838986d24?auto=format&fit=crop&w=1200&q=70",
-  },
-  {
-    title: "Jollof Rice & Fried Chicken",
-    desc: "Our signature jollof rice, cooked to perfection, served with succulent fried chicken.",
-    price: 3500,
-    img: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1200&q=70",
-  },
-  {
-    title: "Jollof Rice & Fried Chicken",
-    desc: "Our signature jollof rice, cooked to perfection, served with succulent fried chicken.",
-    price: 3500,
-    img: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1200&q=70",
-  },
-  {
-    title: "Jollof Rice & Smoked Chicken",
-    desc: "Jollof rice with deep smoky flavor paired with tender smoked chicken.",
-    price: 3500,
-    img: "https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?auto=format&fit=crop&w=1200&q=70",
-  },
-  {
-    title: "Jollof Rice & Fried Chicken",
-    desc: "Our signature jollof rice, cooked to perfection, served with succulent fried chicken.",
-    price: 3500,
-    img: "https://images.unsplash.com/photo-1526318896980-cf78c088247c?auto=format&fit=crop&w=1200&q=70",
-  },
-  {
-    title: "Egusi Soup & Pounded Yam",
-    desc: "Rich and savory egusi soup with assorted meat, paired with fluffy pounded yam.",
-    price: 4000,
-    img: "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=400&q=80",
-  },
-];
+const categoryImages = {
+  "Jollof Rice & Entrees": IMAGES.jollof,
+  "Seafood & Soups": IMAGES.soup,
+  "Grills & Sides": IMAGES.grilled,
+  Beverages: IMAGES.drink,
+  Desserts: IMAGES.plantain,
+};
 
 export default function Home() {
+  const navigate = useNavigate();
+  const popular = menuItems.filter((i) => i.popular);
+
   return (
     <div className="app">
       <Navbar active="home" />
 
       <main className="page">
         <section className="home-hero">
-          <div className="home-hero-bg" />
+          <Link to="/menu" className="block absolute inset-0 z-[1] cursor-pointer" aria-label="Go to menu" />
+          <div className="home-hero-bg" style={{ backgroundImage: `url(${IMAGES.hero})` }} />
           <div className="home-hero-overlay" />
 
           <div className="home-hero-content">
@@ -84,7 +32,7 @@ export default function Home() {
             <p className="home-sub">
               Handcrafted with passion, delivered with care.
             </p>
-            <button className="btn btn-primary">Discover what's new</button>
+            <Link to="/menu" className="btn btn-primary inline-block">Discover what's new</Link>
           </div>
 
           <div className="searchbar">
@@ -96,12 +44,12 @@ export default function Home() {
         <section className="section">
           <h2 className="section-title">Popular Categories</h2>
           <div className="grid cats">
-            {categories.map((c, idx) => (
+            {categories.map((cat) => (
               <CategoryCard
-                key={`${c.title}-${idx}`}
-                name={c.title}
-                image={c.img}
-                onClick={() => {}}
+                key={cat}
+                name={cat}
+                image={categoryImages[cat] || IMAGES.jollof}
+                onClick={() => navigate(`/menu?category=${encodeURIComponent(cat)}`)}
               />
             ))}
           </div>
@@ -110,8 +58,8 @@ export default function Home() {
         <section className="section">
           <h2 className="section-title">Chef's Specials</h2>
           <div className="grid meals">
-            {meals.map((m, idx) => (
-              <MealCard key={`${m.title}-${idx}`} {...m} />
+            {popular.map((item) => (
+              <FoodCard key={item.id} item={item} />
             ))}
           </div>
         </section>
