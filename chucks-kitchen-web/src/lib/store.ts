@@ -1,46 +1,144 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 export interface MenuItem {
   id: string;
   name: string;
   description: string;
-  image: string;
   price: number;
+  image: string;
+  category: string;
+  popular?: boolean;
 }
 
-export interface CartItem extends MenuItem {
+export interface CartItem {
+  menuItem: MenuItem;
   quantity: number;
+  protein?: string;
+  extras?: string[];
+  specialInstructions?: string;
 }
 
 interface CartStore {
   items: CartItem[];
-  addItem: (item: MenuItem, quantity?: number) => void;
+  addItem: (item: CartItem) => void;
   removeItem: (id: string) => void;
   updateQuantity: (id: string, quantity: number) => void;
   clearCart: () => void;
+  total: () => number;
 }
 
-export const useCart = create<CartStore>((set) => ({
+export const useCart = create<CartStore>((set, get) => ({
   items: [],
-  addItem: (item, quantity = 1) =>
-    set((state) => {
-      const existing = state.items.find((i) => i.id === item.id);
-      if (existing) {
-        return {
-          items: state.items.map((i) =>
-            i.id === item.id ? { ...i, quantity: i.quantity + quantity } : i
-          ),
-        };
-      }
-      return { items: [...state.items, { ...item, quantity }] };
-    }),
-  removeItem: (id) =>
-    set((state) => ({ items: state.items.filter((i) => i.id !== id) })),
+  addItem: (item) => set((state) => ({ items: [...state.items, item] })),
+  removeItem: (id) => set((state) => ({ items: state.items.filter((i) => i.menuItem.id !== id) })),
   updateQuantity: (id, quantity) =>
     set((state) => ({
-      items: quantity <= 0
-        ? state.items.filter((i) => i.id !== id)
-        : state.items.map((i) => (i.id === id ? { ...i, quantity } : i)),
+      items: state.items.map((i) =>
+        i.menuItem.id === id ? { ...i, quantity } : i
+      ),
     })),
   clearCart: () => set({ items: [] }),
+  total: () => get().items.reduce((sum, i) => sum + i.menuItem.price * i.quantity, 0),
 }));
+
+export const menuItems: MenuItem[] = [
+  {
+    id: '1',
+    name: 'Jollof Rice & Fried Chicken',
+    description: 'Our signature jollof rice, cooked to perfection, served with succulent fried chicken.',
+    price: 4500,
+    image: '/images/jollof-rice.jpg',
+    category: 'Jollof Rice & Entrees',
+    popular: true,
+  },
+  {
+    id: '2',
+    name: 'Spicy Tilapia Pepper Soup',
+    description: 'A comforting and spicy soup with tender tilapia fish, a true Nigerian delicacy.',
+    price: 3800,
+    image: '/images/pepper-soup.jpg',
+    category: 'Seafood & Soups',
+    popular: true,
+  },
+  {
+    id: '3',
+    name: 'Egusi Soup with Pounded Yam',
+    description: 'Rich melon seed soup with assorted meat, served with freshly pounded yam.',
+    price: 5200,
+    image: '/images/egusi-soup.jpg',
+    category: 'Seafood & Soups',
+    popular: true,
+  },
+  {
+    id: '4',
+    name: 'Suya Skewers',
+    description: 'Spicy grilled beef skewers with onions, tomatoes and suya spice.',
+    price: 3200,
+    image: '/images/suya.jpg',
+    category: 'Grills & Sides',
+  },
+  {
+    id: '5',
+    name: 'Fried Plantain (Dodo)',
+    description: 'Golden crispy fried plantain slices, a perfect side dish.',
+    price: 1500,
+    image: '/images/plantain.jpg',
+    category: 'Grills & Sides',
+  },
+  {
+    id: '6',
+    name: 'Chin Chin',
+    description: 'Crunchy fried dough snack, lightly sweetened and perfectly golden.',
+    price: 1200,
+    image: '/images/chin-chin.jpg',
+    category: 'Desserts',
+  },
+  {
+    id: '7',
+    name: 'Moi Moi',
+    description: 'Steamed bean pudding with eggs and fish, wrapped in banana leaves.',
+    price: 2000,
+    image: '/images/moi-moi.jpg',
+    category: 'Grills & Sides',
+  },
+  {
+    id: '8',
+    name: 'Jollof Rice & Fried Chicken (Large)',
+    description: 'Double portion of our famous jollof rice with two pieces of fried chicken.',
+    price: 7500,
+    image: '/images/jollof-rice.jpg',
+    category: 'Jollof Rice & Entrees',
+  },
+  {
+    id: '9',
+    name: 'Zobo Drink',
+    description: 'Refreshing hibiscus flower drink with ginger and pineapple, served chilled.',
+    price: 800,
+    image: '/images/zobo.jpg',
+    category: 'Beverages',
+  },
+  {
+    id: '10',
+    name: 'Chapman',
+    description: 'Nigeria\'s favourite cocktail with Fanta, Sprite, cucumber and orange slices.',
+    price: 1200,
+    image: '/images/chapman.jpg',
+    category: 'Beverages',
+  },
+  {
+    id: '11',
+    name: 'Palm Wine',
+    description: 'Traditional naturally fermented palm sap, mildly sweet and refreshing.',
+    price: 1000,
+    image: '/images/palm-wine.jpg',
+    category: 'Beverages',
+  },
+];
+
+export const categories = [
+  'Jollof Rice & Entrees',
+  'Seafood & Soups',
+  'Grills & Sides',
+  'Beverages',
+  'Desserts',
+];

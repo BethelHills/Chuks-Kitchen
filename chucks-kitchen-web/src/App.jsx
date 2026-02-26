@@ -6,6 +6,7 @@ import Home from "./pages/Home.jsx";
 import Explore from "./pages/Explore.jsx";
 import MyOrders from "./pages/MyOrders.jsx";
 import Account from "./pages/Account.jsx";
+import Cart from "./pages/Cart";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/home" element={<Home />} />
       <Route path="/explore" element={<Explore />} />
+      <Route path="/cart" element={<Cart />} />
       <Route path="/orders" element={<MyOrders />} />
       <Route path="/account" element={<Account />} />
       <Route path="*" element={<Navigate to="/" replace />} />
