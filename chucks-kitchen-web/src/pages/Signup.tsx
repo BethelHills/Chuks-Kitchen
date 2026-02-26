@@ -1,16 +1,21 @@
 import { Link } from "react-router-dom";
 import "../styles/auth.css";
-import { IMAGES } from "@/lib/store";
+import { IMAGES } from "@/lib/images";
 
 export default function Signup() {
   return (
     <div className="auth-page" id="top">
       <section className="auth-card">
         {/* LEFT IMAGE SIDE */}
-        <div
-          className="auth-left"
-          style={{ backgroundImage: `url(${IMAGES.signup})` }}
-        >
+        <div className="auth-left">
+          <img
+            src={IMAGES.signup}
+            alt="Chuks Kitchen"
+            className="auth-left-img"
+            onError={(e) => {
+              e.currentTarget.src = "/images/signup.jpg";
+            }}
+          />
           <div className="auth-overlay" />
           <div className="auth-left-content">
             <h1 className="auth-brand">Chuks Kitchen</h1>

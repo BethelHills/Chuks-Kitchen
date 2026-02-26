@@ -27,17 +27,25 @@
 }
 
 .auth-left {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   position: relative;
   min-height: 360px;
+  overflow: hidden;
+}
+
+.auth-left-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .auth-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(249, 115, 22, 0.6);
+  background: rgba(249, 115, 22, 0.5);
+  z-index: 1;
 }
 
 .auth-left-content {
@@ -46,7 +54,7 @@
   bottom: 60px;
   right: 40px;
   color: #fff;
-  z-index: 1;
+  z-index: 2;
 }
 
 .auth-brand {
