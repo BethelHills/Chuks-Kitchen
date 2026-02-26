@@ -1,12 +1,15 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import Landing from "./pages/Landing.jsx";
-import Login from "./pages/Login.jsx";
+import Landing from "./pages/Landing";
+import Login from "./pages/Login";
 import Signup from "./pages/Signup.jsx";
 import Home from "./pages/Home.jsx";
 import Explore from "./pages/Explore.jsx";
 import MyOrders from "./pages/MyOrders.jsx";
 import Account from "./pages/Account.jsx";
 import Cart from "./pages/Cart";
+import Checkout from "./pages/Checkout";
+import FoodDetail from "./pages/FoodDetail";
+import Menu from "./pages/Menu";
 
 export default function App() {
   return (
@@ -16,7 +19,10 @@ export default function App() {
       <Route path="/signup" element={<Signup />} />
       <Route path="/home" element={<Home />} />
       <Route path="/explore" element={<Explore />} />
+      <Route path="/menu" element={<Menu />} />
+      <Route path="/menu/:id" element={<FoodDetail />} />
       <Route path="/cart" element={<Cart />} />
+      <Route path="/checkout" element={<Checkout />} />
       <Route path="/orders" element={<MyOrders />} />
       <Route path="/account" element={<Account />} />
       <Route path="*" element={<Navigate to="/" replace />} />
