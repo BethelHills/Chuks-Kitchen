@@ -47,7 +47,15 @@ const Cart = () => {
       <div className="px-5 pt-4 space-y-4">
         {items.map((ci) => (
           <div key={ci.menuItem.id} className="flex items-center gap-3 rounded-xl bg-card p-3 shadow-sm">
-            <img src={ci.menuItem.image} alt={ci.menuItem.name} className="h-16 w-16 rounded-lg object-cover" />
+            <img
+              src={ci.menuItem.image}
+              alt={ci.menuItem.name}
+              className="h-16 w-16 rounded-lg object-cover"
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect fill='%23f3f4f6' width='80' height='80'/%3E%3Ctext fill='%239ca3af' font-size='10' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3E%3F%3C/text%3E%3C/svg%3E";
+              }}
+            />
             <div className="flex-1 min-w-0">
               <h4 className="text-sm font-semibold text-foreground truncate">{ci.menuItem.name}</h4>
               {ci.protein && <p className="text-xs text-muted-foreground">{ci.protein}</p>}

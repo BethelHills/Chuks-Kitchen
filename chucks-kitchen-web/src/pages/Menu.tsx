@@ -5,14 +5,14 @@ import { Input } from '@/components/ui/input';
 import FoodCard from '@/components/FoodCard';
 import CategoryCard from '@/components/CategoryCard';
 import MobileNav from '@/components/MobileNav';
-import { menuItems, categories } from '@/lib/store';
+import { menuItems, categories, IMAGES } from '@/lib/store';
 
 const categoryImages: Record<string, string> = {
-  'Jollof Rice & Entrees': '/images/jollof-rice.jpg',
-  'Seafood & Soups': '/images/pepper-soup.jpg',
-  'Grills & Sides': '/images/suya.jpg',
-  'Beverages': '/images/zobo.jpg',
-  'Desserts': '/images/plantain.jpg',
+  'Jollof Rice & Entrees': IMAGES.jollof,
+  'Seafood & Soups': IMAGES.soup,
+  'Grills & Sides': IMAGES.grilled,
+  'Beverages': IMAGES.drink,
+  'Desserts': IMAGES.plantain,
 };
 
 const Menu = () => {
@@ -34,7 +34,7 @@ const Menu = () => {
       <div className="relative overflow-hidden">
         <div
           className="h-48 bg-cover bg-center"
-          style={{ backgroundImage: 'url(/images/hero-food.jpg)' }}
+          style={{ backgroundImage: `url(${IMAGES.hero})` }}
         >
           <div className="absolute inset-0 bg-gradient-to-b from-foreground/60 to-foreground/80" />
           <div className="relative z-10 flex h-full flex-col justify-end p-5">
@@ -86,7 +86,7 @@ const Menu = () => {
               <CategoryCard
                 key={cat}
                 name={cat}
-                image={categoryImages[cat] || '/images/jollof-rice.jpg'}
+                image={categoryImages[cat] || IMAGES.jollof}
                 onClick={() => setActiveCategory(cat)}
               />
             ))}
@@ -148,7 +148,15 @@ const Menu = () => {
       {!search && !activeCategory && (
         <section className="mt-8 px-5 pb-4">
           <div className="relative overflow-hidden rounded-xl">
-            <img src="/images/hero-food.jpg" alt="New menu" className="h-48 w-full object-cover" />
+            <img
+            src={IMAGES.hero}
+            alt="New menu"
+            className="h-48 w-full object-cover"
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200' viewBox='0 0 400 200'%3E%3Crect fill='%23f3f4f6' width='400' height='200'/%3E%3Ctext fill='%239ca3af' font-size='16' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EMenu%3C/text%3E%3C/svg%3E";
+            }}
+          />
             <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent" />
             <div className="absolute bottom-4 left-4 right-4">
               <h3 className="font-display text-xl font-bold text-primary-foreground">

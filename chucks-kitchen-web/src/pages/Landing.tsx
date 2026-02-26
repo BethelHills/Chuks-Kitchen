@@ -1,6 +1,7 @@
 import { Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { IMAGES } from '@/lib/store';
 
 const features = [
   'Freshly Cooked',
@@ -66,9 +67,13 @@ const Landing = () => {
         <div className="relative h-48 w-48">
           <div className="absolute inset-0 rounded-full bg-primary/10" />
           <img
-            src="/images/hero-food.jpg"
+            src={IMAGES.hero}
             alt="Nigerian food spread"
             className="absolute inset-2 rounded-full object-cover"
+            onError={(e) => {
+              e.currentTarget.onerror = null;
+              e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Crect fill='%23f3f4f6' width='200' height='200'/%3E%3Ctext fill='%239ca3af' font-size='14' x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle'%3EFood%3C/text%3E%3C/svg%3E";
+            }}
           />
         </div>
       </div>

@@ -41,13 +41,24 @@ export const useCart = create<CartStore>((set, get) => ({
   total: () => get().items.reduce((sum, i) => sum + i.menuItem.price * i.quantity, 0),
 }));
 
+// Placeholder images from Unsplash (free to use)
+export const IMAGES = {
+  jollof: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&q=80',
+  soup: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&q=80',
+  grilled: 'https://images.unsplash.com/photo-1558030006-450675393462?w=400&q=80',
+  plantain: 'https://images.unsplash.com/photo-1604329760661-e71dc83f2b26?w=400&q=80',
+  snack: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&q=80',
+  drink: 'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&q=80',
+  hero: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80',
+};
+
 export const menuItems: MenuItem[] = [
   {
     id: '1',
     name: 'Jollof Rice & Fried Chicken',
     description: 'Our signature jollof rice, cooked to perfection, served with succulent fried chicken.',
     price: 4500,
-    image: '/images/jollof-rice.jpg',
+    image: IMAGES.jollof,
     category: 'Jollof Rice & Entrees',
     popular: true,
   },
@@ -56,7 +67,7 @@ export const menuItems: MenuItem[] = [
     name: 'Spicy Tilapia Pepper Soup',
     description: 'A comforting and spicy soup with tender tilapia fish, a true Nigerian delicacy.',
     price: 3800,
-    image: '/images/pepper-soup.jpg',
+    image: IMAGES.soup,
     category: 'Seafood & Soups',
     popular: true,
   },
@@ -65,7 +76,7 @@ export const menuItems: MenuItem[] = [
     name: 'Egusi Soup with Pounded Yam',
     description: 'Rich melon seed soup with assorted meat, served with freshly pounded yam.',
     price: 5200,
-    image: '/images/egusi-soup.jpg',
+    image: IMAGES.soup,
     category: 'Seafood & Soups',
     popular: true,
   },
@@ -74,7 +85,7 @@ export const menuItems: MenuItem[] = [
     name: 'Suya Skewers',
     description: 'Spicy grilled beef skewers with onions, tomatoes and suya spice.',
     price: 3200,
-    image: '/images/suya.jpg',
+    image: IMAGES.grilled,
     category: 'Grills & Sides',
   },
   {
@@ -82,7 +93,7 @@ export const menuItems: MenuItem[] = [
     name: 'Fried Plantain (Dodo)',
     description: 'Golden crispy fried plantain slices, a perfect side dish.',
     price: 1500,
-    image: '/images/plantain.jpg',
+    image: IMAGES.plantain,
     category: 'Grills & Sides',
   },
   {
@@ -90,7 +101,7 @@ export const menuItems: MenuItem[] = [
     name: 'Chin Chin',
     description: 'Crunchy fried dough snack, lightly sweetened and perfectly golden.',
     price: 1200,
-    image: '/images/chin-chin.jpg',
+    image: IMAGES.snack,
     category: 'Desserts',
   },
   {
@@ -98,7 +109,7 @@ export const menuItems: MenuItem[] = [
     name: 'Moi Moi',
     description: 'Steamed bean pudding with eggs and fish, wrapped in banana leaves.',
     price: 2000,
-    image: '/images/moi-moi.jpg',
+    image: IMAGES.snack,
     category: 'Grills & Sides',
   },
   {
@@ -106,7 +117,7 @@ export const menuItems: MenuItem[] = [
     name: 'Jollof Rice & Fried Chicken (Large)',
     description: 'Double portion of our famous jollof rice with two pieces of fried chicken.',
     price: 7500,
-    image: '/images/jollof-rice.jpg',
+    image: IMAGES.jollof,
     category: 'Jollof Rice & Entrees',
   },
   {
@@ -114,7 +125,7 @@ export const menuItems: MenuItem[] = [
     name: 'Zobo Drink',
     description: 'Refreshing hibiscus flower drink with ginger and pineapple, served chilled.',
     price: 800,
-    image: '/images/zobo.jpg',
+    image: IMAGES.drink,
     category: 'Beverages',
   },
   {
@@ -122,7 +133,7 @@ export const menuItems: MenuItem[] = [
     name: 'Chapman',
     description: 'Nigeria\'s favourite cocktail with Fanta, Sprite, cucumber and orange slices.',
     price: 1200,
-    image: '/images/chapman.jpg',
+    image: IMAGES.drink,
     category: 'Beverages',
   },
   {
@@ -130,10 +141,12 @@ export const menuItems: MenuItem[] = [
     name: 'Palm Wine',
     description: 'Traditional naturally fermented palm sap, mildly sweet and refreshing.',
     price: 1000,
-    image: '/images/palm-wine.jpg',
+    image: IMAGES.drink,
     category: 'Beverages',
   },
 ];
+
+export const heroImage = IMAGES.hero;
 
 export const categories = [
   'Jollof Rice & Entrees',
