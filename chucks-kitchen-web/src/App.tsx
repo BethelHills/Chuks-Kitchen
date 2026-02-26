@@ -15,6 +15,7 @@ import Explore from "./pages/Explore";
 import MyOrders from "./pages/MyOrders";
 import Account from "./pages/Account";
 import NotFound from "./pages/NotFound";
+import Onboarding from "./pages/Onboarding";
 
 const queryClient = new QueryClient();
 
@@ -25,7 +26,8 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Landing />} />
+          <Route path="/" element={<Onboarding />} />
+          <Route path="/landing" element={<Landing />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/menu/:id" element={<FoodDetail />} />
           <Route path="/cart" element={<Cart />} />

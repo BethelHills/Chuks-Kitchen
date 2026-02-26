@@ -4,6 +4,7 @@
 @tailwind utilities;
 
 :root {
+  --font-display: 'Island Moments', cursive;
   --orange: #f97316;
   --orange2: #ea580c;
   --brown: #5a3b2c;
@@ -73,6 +74,7 @@ a{ color:inherit; text-decoration:none; }
   gap:16px;
 }
 .brand{
+  font-family: var(--font-display);
   font-weight:900;
   color: var(--orange);
   font-size: 16px;
@@ -127,6 +129,7 @@ a{ color:inherit; text-decoration:none; }
   z-index:1;
 }
 .left-title{
+  font-family: var(--font-display);
   font-weight:900;
   font-size: 34px;
   margin-bottom: 10px;
@@ -147,8 +150,8 @@ a{ color:inherit; text-decoration:none; }
   max-width: 440px;
   width:100%;
 }
-.h1{ margin:0 0 10px; font-size: 26px; font-weight:900; }
-.h2{ margin:10px 0 14px; font-size: 18px; font-weight:900; }
+.h1{ font-family: var(--font-display); margin:0 0 10px; font-size: 26px; font-weight:900; }
+.h2{ font-family: var(--font-display); margin:10px 0 14px; font-size: 18px; font-weight:900; }
 .muted{ color: var(--muted); font-size: 13px; line-height:1.6; }
 
 .feature-row{ display:flex; gap:12px; margin-top: 10px; flex-wrap:wrap; }
@@ -170,6 +173,7 @@ a{ color:inherit; text-decoration:none; }
   text-align:center;
 }
 .auth-brand{
+  font-family: var(--font-display);
   font-weight:900;
   color: var(--orange);
   margin-bottom: 6px;
@@ -271,7 +275,7 @@ a{ color:inherit; text-decoration:none; }
   padding: 90px 16px 0;
   color:#fff;
 }
-.home-title{ font-size: 34px; font-weight: 1000; margin:0 0 8px; }
+.home-title{ font-family: var(--font-display); font-size: 34px; font-weight: 1000; margin:0 0 8px; }
 .home-sub{ margin:0 0 14px; font-size: 13px; color: rgba(255,255,255,.85); max-width: 520px; }
 
 .searchbar{
@@ -316,6 +320,7 @@ a{ color:inherit; text-decoration:none; }
   object-fit: cover;
 }
 .section-title{
+  font-family: var(--font-display);
   text-align:center;
   font-size: 18px;
   font-weight: 1000;
@@ -338,7 +343,7 @@ a{ color:inherit; text-decoration:none; }
   box-shadow: 0 10px 25px rgba(0,0,0,.06);
 }
 .cat-img{ width:100%; height: 120px; object-fit:cover; }
-.cat-title{ padding: 12px; font-weight: 1000; text-align:center; font-size: 13px; }
+.cat-title{ font-family: var(--font-display); padding: 12px; font-weight: 1000; text-align:center; font-size: 13px; }
 
 .meal-card{
   background:#fff;
@@ -349,7 +354,7 @@ a{ color:inherit; text-decoration:none; }
 }
 .meal-img{ width:100%; height: 130px; object-fit:cover; }
 .meal-body{ padding: 12px; }
-.meal-title{ font-weight: 1000; font-size: 13px; }
+.meal-title{ font-family: var(--font-display); font-weight: 1000; font-size: 13px; }
 .meal-desc{ margin-top: 6px; color: var(--muted); font-size: 12px; line-height: 1.5; min-height: 52px; }
 .meal-bottom{ margin-top: 10px; display:flex; align-items:center; justify-content:space-between; }
 .meal-price{ font-weight: 1000; color: var(--orange2); font-size: 12px; }
@@ -368,9 +373,9 @@ a{ color:inherit; text-decoration:none; }
   grid-template-columns: 1.4fr 1fr 1fr 1fr;
   gap: 24px;
 }
-.footer-brand{ font-weight: 1000; margin-bottom: 8px; color:#fff; }
+.footer-brand{ font-family: var(--font-display); font-weight: 1000; margin-bottom: 8px; color:#fff; }
 .footer-text{ margin:0; color: rgba(255,255,255,.85); font-size: 12px; line-height:1.6; }
-.footer-title{ font-weight: 1000; margin-bottom: 10px; }
+.footer-title{ font-family: var(--font-display); font-weight: 1000; margin-bottom: 10px; }
 .footer-links{ display:flex; flex-direction:column; gap:8px; font-size: 12px; color: rgba(255,255,255,.85); }
 .footer-links a{ color: rgba(255,255,255,.85); }
 .footer-links a:hover{ color:#fff; }
