@@ -27,10 +27,12 @@
 }
 
 .auth-left {
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
   position: relative;
   min-height: 360px;
+  background-color: var(--panel);
 }
 
 .auth-overlay {
