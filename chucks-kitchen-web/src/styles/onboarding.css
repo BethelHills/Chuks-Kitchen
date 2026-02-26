@@ -25,21 +25,14 @@ a{ text-decoration:none; color:inherit; }
   flex-direction: column;
 }
 
-/* ===== TOP BAR ===== */
-.ob-topbar{
-  background:#fff;
-  padding: 14px 0;
-  flex-shrink: 0;
-}
-.ob-topbar-inner{
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 0 16px;
-  position: relative;
-  display:flex;
-  justify-content:center;
-  align-items:center;
+/* ===== HEADER (inside content box) ===== */
+.ob-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
 }
 .ob-logo{
   font-family: "Island Moments", cursive;
@@ -50,19 +43,17 @@ a{ text-decoration:none; color:inherit; }
   color: var(--orange);
 }
 .ob-signin{
-  position:absolute;
-  right: 16px;
   height: 44px;
   padding: 0 34px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 10px;
   border: 2px solid var(--blue);
   color: var(--blue);
   font-weight: 800;
   font-size: 13px;
-  background:#fff;
+  background: #fff;
 }
 
 /* ===== CARD LAYOUT ===== */
@@ -77,15 +68,17 @@ a{ text-decoration:none; color:inherit; }
   background:#fff;
   display:grid;
   grid-template-columns: 1fr 1fr;
-  min-height: min(690px, calc(100vh - 200px));
+  min-height: min(690px, 80vh);
   overflow:hidden;
   width: 100%;
 }
 
 .ob-left{
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   background-position: center;
   min-height: 320px;
+  background-color: var(--panel);
 }
 
 .ob-right{
@@ -300,11 +293,11 @@ a{ text-decoration:none; color:inherit; }
 
 /* Responsive - Mobile */
 @media (max-width: 560px){
-  .ob-topbar-inner{
-    padding: 0 12px;
+  .ob-header{
+    margin-bottom: 16px;
+    padding-bottom: 12px;
   }
   .ob-signin{
-    right: 12px;
     padding: 0 20px;
     height: 40px;
     font-size: 12px;

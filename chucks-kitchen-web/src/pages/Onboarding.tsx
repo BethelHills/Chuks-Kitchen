@@ -4,16 +4,6 @@ import "../styles/onboarding.css";
 export default function Onboarding() {
   return (
     <div className="ob-page" id="top">
-      <header className="ob-topbar">
-        <div className="ob-topbar-inner">
-          <div className="ob-logo">Chuks Kitchen</div>
-
-          <Link to="/login" className="ob-signin">
-            Sign In
-          </Link>
-        </div>
-      </header>
-
       <main className="ob-wrap">
         <section className="ob-card">
           <div
@@ -23,6 +13,13 @@ export default function Onboarding() {
 
           <div className="ob-right">
             <div className="ob-content">
+              <div className="ob-header">
+                <div className="ob-logo">Chuks Kitchen</div>
+                <Link to="/login" className="ob-signin">
+                  Sign In
+                </Link>
+              </div>
+
               <h1 className="ob-title">Your Authentic Taste of Nigeria</h1>
 
               <p className="ob-desc">
