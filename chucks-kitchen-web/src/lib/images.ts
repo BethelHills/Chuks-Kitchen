@@ -12,6 +12,7 @@ import meal7 from "@/assets/images/Desktop - 6-7.png";
 import categories from "@/assets/images/Categories.png";
 import exploreImage from "@/assets/images/Explore - image.png";
 import signupImage from "@/assets/images/signup.jpg";
+import onboardingImage from "@/assets/images/onboarding.jpg";
 
 export const IMAGES = {
   hero,
@@ -29,4 +30,5 @@ export const IMAGES = {
   meal1,
   meal7,
   signup: signupImage,
+  onboarding: onboardingImage,
 };
