@@ -10,11 +10,13 @@ import meal5 from "@/assets/images/Desktop - 6-5.png";
 import meal6 from "@/assets/images/Desktop - 6-6.png";
 import meal7 from "@/assets/images/Desktop - 6-7.png";
 import categories from "@/assets/images/Categories.png";
+import exploreImage from "@/assets/images/Explore - image.png";
 
 export const IMAGES = {
   hero,
   logo,
   categories,
+  explore: exploreImage,
   // Meal images - mapped to menu categories
   jollof: featuredMeal,
   soup: meal2,

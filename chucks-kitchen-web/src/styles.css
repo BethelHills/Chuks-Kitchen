@@ -305,6 +305,17 @@ a{ color:inherit; text-decoration:none; }
   margin: 0 auto;
   padding: 62px 16px 26px;
 }
+.explore-hero{
+  margin-bottom: 24px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.explore-hero-img{
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
 .section-title{
   text-align:center;
   font-size: 18px;

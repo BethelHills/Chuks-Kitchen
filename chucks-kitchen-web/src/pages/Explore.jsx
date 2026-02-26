@@ -2,6 +2,7 @@ import Navbar from "../components/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 import CategoryCard from "../components/CategoryCard";
 import MealCard from "../components/MealCard.jsx";
+import { IMAGES } from "@/lib/store";
 
 const categories = [
   { title: "Jollof Delights", img: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1200&q=70" },
@@ -22,6 +23,9 @@ export default function Explore() {
       <Navbar active="home" />
       <main className="page">
         <section className="section">
+          <div className="explore-hero">
+            <img src={IMAGES.explore} alt="Explore our menu" className="explore-hero-img" />
+          </div>
           <h2 className="section-title">Explore Menu</h2>
           <div className="grid cats">
             {categories.map((c, idx) => (
