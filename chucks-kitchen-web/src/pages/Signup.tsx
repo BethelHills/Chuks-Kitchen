@@ -8,7 +8,7 @@ export default function Signup() {
         {/* LEFT IMAGE SIDE */}
         <div
           className="auth-left"
-          style={{ backgroundImage: "url(/images/onboarding.jpg)" }}
+          style={{ backgroundImage: "url(/images/signup.jpg)" }}
         >
           <div className="auth-overlay" />
           <div className="auth-left-content">
