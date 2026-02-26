@@ -23,8 +23,8 @@ const Landing = () => {
       </header>
 
       {/* Logo */}
-      <div className="mt-6 text-center">
-        <h2 className="font-display text-2xl font-bold italic text-primary">Chuka's Kitchen</h2>
+      <div className="mt-6 flex justify-center">
+        <img src={IMAGES.logo} alt="Chuka's Kitchen" className="h-12 object-contain" />
       </div>
 
       {/* Hero */}

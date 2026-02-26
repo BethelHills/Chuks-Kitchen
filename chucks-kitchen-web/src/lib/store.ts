@@ -41,16 +41,9 @@ export const useCart = create<CartStore>((set, get) => ({
   total: () => get().items.reduce((sum, i) => sum + i.menuItem.price * i.quantity, 0),
 }));
 
-// Placeholder images from Unsplash (free to use)
-export const IMAGES = {
-  jollof: 'https://images.unsplash.com/photo-1512058564366-18510be2db19?w=400&q=80',
-  soup: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?w=400&q=80',
-  grilled: 'https://images.unsplash.com/photo-1558030006-450675393462?w=400&q=80',
-  plantain: 'https://images.unsplash.com/photo-1604329760661-e71dc83f2b26?w=400&q=80',
-  snack: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&q=80',
-  drink: 'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=400&q=80',
-  hero: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=800&q=80',
-};
+import { IMAGES } from "./images";
+
+export { IMAGES };
 
 export const menuItems: MenuItem[] = [
   {
