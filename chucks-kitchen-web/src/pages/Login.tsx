@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/auth.css";
-import { IMAGES } from "@/lib/images";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -11,7 +10,7 @@ export default function Login() {
         {/* LEFT IMAGE SIDE - signin screen.jpg from public/images */}
         <div className="auth-left auth-left-signin">
           <img
-            src={IMAGES.signin}
+            src="/images/signin-screen.jpg"
             alt="Chuks Kitchen - Family enjoying Nigerian meals at table"
             className="auth-left-img"
           />

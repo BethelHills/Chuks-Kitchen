@@ -70,7 +70,7 @@
 /* Signin: signin screen.jpg - man, woman, food on table */
 .auth-left-signin {
   background-color: #1a1a1a;
-  background-image: url("/images/signin%20screen.jpg");
+  background-image: url("/images/signin-screen.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
