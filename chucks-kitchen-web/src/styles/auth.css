@@ -49,6 +49,18 @@
   vertical-align: middle;
 }
 
+/* Onboarding: show full image clearly, exactly as it appears - no cropping */
+.auth-left-onboarding {
+  background: #f8f8f8;
+}
+.auth-left-onboarding .auth-left-img {
+  object-fit: contain;
+  object-position: center center;
+}
+.auth-left-onboarding .auth-left-content {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
 .auth-overlay {
   position: absolute;
   inset: 0;

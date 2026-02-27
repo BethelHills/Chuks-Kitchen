@@ -7,10 +7,10 @@ export default function Onboarding() {
     <div className="auth-page" id="top">
       <section className="auth-card">
         {/* LEFT IMAGE SIDE - same as Signup */}
-        <div className="auth-left">
+        <div className="auth-left auth-left-onboarding">
           <img
             src={IMAGES.onboarding}
-            alt="Chuks Kitchen"
+            alt="Chuks Kitchen - Family enjoying Nigerian meals"
             className="auth-left-img"
             onError={(e) => {
               e.currentTarget.src = "/images/Onboarding%20%3A%20Welcome%20Responsive.jpg";
