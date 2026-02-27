@@ -13,7 +13,7 @@ export default function Onboarding() {
             alt="Chuks Kitchen"
             className="auth-left-img"
             onError={(e) => {
-              e.currentTarget.src = "/images/onboarding.jpg";
+              e.currentTarget.src = "/images/Onboarding%20%3A%20Welcome%20Responsive.jpg";
             }}
           />
           <div className="auth-overlay" />

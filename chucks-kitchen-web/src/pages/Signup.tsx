@@ -1,18 +1,21 @@
 import { Link } from "react-router-dom";
 import "../styles/auth.css";
-
-// Replace signup.jpg in public/images/ then increment ?v= to force browser to load new image
-const signupBgUrl = `${import.meta.env.BASE_URL || ""}images/signup.jpg?v=4`;
+import { IMAGES } from "@/lib/images";
 
 export default function Signup() {
   return (
     <div className="auth-page" id="top">
       <section className="auth-card">
         {/* LEFT IMAGE SIDE */}
-        <div
-          className="auth-left"
-          style={{ backgroundImage: `url(${signupBgUrl})` }}
-        >
+        <div className="auth-left">
+          <img
+            src={IMAGES.signup}
+            alt="Chuks Kitchen - Sign up for delicious Nigerian meals"
+            className="auth-left-img"
+            onError={(e) => {
+              e.currentTarget.src = "/images/signup.jpg";
+            }}
+          />
           <div className="auth-overlay" />
           <div className="auth-left-content">
             <h1 className="auth-brand">Chuks Kitchen</h1>
