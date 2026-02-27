@@ -16,7 +16,6 @@ export default function Onboarding() {
               e.currentTarget.src = "/images/Onboarding%20%3A%20Welcome%20Responsive.jpg";
             }}
           />
-          <div className="auth-overlay" />
           <div className="auth-left-content">
             <h1 className="auth-brand">Chuks Kitchen</h1>
             <p className="auth-left-text">
