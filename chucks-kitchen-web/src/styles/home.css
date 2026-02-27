@@ -93,6 +93,8 @@ a{ text-decoration:none; color:inherit; }
   font-weight: 700;
 }
 .hm-cta{
+  display: inline-flex;
+  align-items: center;
   height: 34px;
   padding: 0 14px;
   border-radius: 8px;
@@ -102,6 +104,7 @@ a{ text-decoration:none; color:inherit; }
   font-weight: 900;
   font-size: 12px;
   cursor:pointer;
+  text-decoration: none;
 }
 
 /* SEARCH */
