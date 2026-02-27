@@ -1,20 +1,15 @@
 import { Link } from "react-router-dom";
 import "../styles/auth.css";
 
-// Cache-bust: increment when you replace signup.jpg so the browser loads the new image
-const SIGNUP_IMG = `${import.meta.env.BASE_URL}images/signup.jpg?v=2`;
-
 export default function Signup() {
   return (
     <div className="auth-page" id="top">
       <section className="auth-card">
         {/* LEFT IMAGE SIDE */}
-        <div className="auth-left">
-          <img
-            src={SIGNUP_IMG}
-            alt="Chuks Kitchen"
-            className="auth-left-img"
-          />
+        <div
+          className="auth-left"
+          style={{ backgroundImage: "url(/images/signup.jpg)" }}
+        >
           <div className="auth-overlay" />
           <div className="auth-left-content">
             <h1 className="auth-brand">Chuks Kitchen</h1>
