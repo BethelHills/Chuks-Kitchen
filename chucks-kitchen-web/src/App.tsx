@@ -8,6 +8,8 @@ import Menu from "./pages/Menu";
 import FoodDetails from "./pages/FoodDetails";
 import Cart from "./pages/Cart";
 import OrderSummary from "./pages/OrderSummary";
+import DeliveryDetails from "./pages/DeliveryDetails";
+import PaymentOptions from "./pages/PaymentOptions";
 import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -35,6 +37,8 @@ const App = () => (
           <Route path="/food/:id" element={<FoodDetails />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/order-summary" element={<OrderSummary />} />
+          <Route path="/delivery-details" element={<DeliveryDetails />} />
+          <Route path="/payment" element={<PaymentOptions />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />

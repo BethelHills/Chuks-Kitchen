@@ -1,0 +1,246 @@
+:root{
+  --orange:#ff7a1a;
+  --orange2:#f06a12;
+  --blue:#1f6fff;
+  --bg:#efefef;
+  --text:#111827;
+  --muted:#6b7280;
+  --line:#e5e7eb;
+  --brown:#5a3b2c;
+  --shadow: 0 16px 40px rgba(0,0,0,.12);
+}
+
+*{ box-sizing:border-box; }
+body{ margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; background: var(--bg); color: var(--text); }
+a{ text-decoration:none; color:inherit; }
+
+.pay{ min-height:100vh; }
+
+/* NAV */
+.pay-nav{
+  background:#fff;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  position: sticky;
+  top:0;
+  z-index: 5;
+}
+.pay-nav-inner{
+  max-width: 1200px;
+  margin:0 auto;
+  padding: 14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.pay-logo{
+  font-family: "Island Moments", cursive;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 32px;
+  color: var(--orange);
+}
+.pay-links{
+  display:flex;
+  align-items:center;
+  gap: 30px;
+  font-size: 13px;
+  font-weight: 800;
+  color:#374151;
+}
+.pay-link{ opacity:.9; }
+.pay-link:hover{ color: var(--orange); }
+
+.pay-login{
+  display: inline-flex;
+  align-items: center;
+  height: 44px;
+  padding: 0 26px;
+  border-radius: 10px;
+  border: none;
+  background: var(--orange);
+  color:#fff;
+  font-weight: 1000;
+  cursor:pointer;
+}
+.pay-login:hover{ background: var(--orange2); }
+
+/* BODY */
+.pay-wrap{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 70px 18px 120px;
+  display: flex;
+  justify-content: center;
+}
+.pay-card{
+  width: 560px;
+  background: #fff;
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.08);
+}
+
+.pay-title{
+  margin: 0 0 20px;
+  font-size: 24px;
+  font-weight: 1000;
+}
+.pay-rule{
+  height: 1px;
+  background: var(--line);
+  margin: 18px 0;
+}
+
+.pay-sub{
+  font-size: 14px;
+  font-weight: 800;
+  margin-bottom: 14px;
+}
+
+.pay-methods{
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.pay-method{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.pay-method input{ accent-color: var(--orange); }
+.pay-method.muted{ opacity: 0.7; }
+
+.pay-form{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.pay-label{
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.pay-input{
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.pay-input:focus{ outline: none; border-color: var(--orange); }
+.pay-input:disabled{ background: #f5f5f5; cursor: not-allowed; }
+
+.pay-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.pay-save{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.pay-save input{ accent-color: var(--orange); }
+.pay-save input:disabled{ cursor: not-allowed; }
+
+.pay-btn{
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 10px;
+  background: var(--orange);
+  color: #fff;
+  font-weight: 1000;
+  font-size: 16px;
+  cursor: pointer;
+}
+.pay-btn:hover{ background: var(--orange2); }
+
+.pay-note{
+  margin: 0;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* FOOTER */
+.pay-footer{
+  margin-top: 44px;
+  background: var(--brown);
+  color: rgba(255,255,255,.92);
+}
+.pay-footer-inner{
+  max-width: 1200px;
+  margin:0 auto;
+  padding: 42px 18px;
+  display:grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 36px;
+}
+.pay-footer-logo{
+  font-family: "Island Moments", cursive;
+  font-size: 30px;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+.pay-footer-text{
+  margin:0;
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: 320px;
+}
+.pay-footer-title{
+  font-weight: 1000;
+  color:#fff;
+  margin-bottom: 12px;
+}
+.pay-footer-links{
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+  font-size: 12px;
+  color: rgba(255,255,255,.75);
+}
+.pay-footer-links a{ color: rgba(255,255,255,.75); }
+.pay-footer-links a:hover{ color:#fff; }
+.pay-social{ padding-top: 22px; }
+
+.pay-footer-bottom{
+  max-width: 1200px;
+  margin:0 auto;
+  padding: 14px 18px 26px;
+  font-size: 11px;
+  color: rgba(255,255,255,.65);
+}
+
+/* FLOAT */
+.pay-float{
+  position: fixed;
+  right: 30px;
+  bottom: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: var(--blue);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 1000;
+  box-shadow: 0 12px 30px rgba(0,0,0,.18);
+}
+
+/* RESPONSIVE */
+@media (max-width: 720px){
+  .pay-card{ width: 100%; }
+  .pay-links{ display:none; }
+}
