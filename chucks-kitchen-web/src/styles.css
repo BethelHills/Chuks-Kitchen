@@ -407,6 +407,10 @@ img {
   font-size: 12px;
   color: rgba(255,255,255,.8);
 }
+.footer-bottom .brand-name{
+  font-weight: 800;
+  color: #fff;
+}
 
 /* Accordion animations */
 @keyframes accordion-down {

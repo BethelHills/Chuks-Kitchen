@@ -162,7 +162,10 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="hm-footer-bottom">© 2026 Chuck's Kitchen. All rights reserved.</div>
+        <div className="hm-footer-bottom footer-bottom">
+          © 2026 Chuks Kitchen. All rights reserved. <br />
+          Designed & Developed by <span className="brand-name">BCodeStack</span>
+        </div>
       </footer>
 
       <a className="hm-float" href="#top" aria-label="Scroll to top">↑</a>

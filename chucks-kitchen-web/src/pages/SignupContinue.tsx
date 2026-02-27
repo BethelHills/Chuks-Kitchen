@@ -135,7 +135,10 @@ export default function SignupContinue() {
             </div>
           </div>
 
-          <div className="sc-footer-bottom">© 2020 Lift Media. All rights reserved.</div>
+          <div className="sc-footer-bottom footer-bottom">
+            © 2026 Chuks Kitchen. All rights reserved. <br />
+            Designed & Developed by <span className="brand-name">BCodeStack</span>
+          </div>
         </footer>
       </div>
 

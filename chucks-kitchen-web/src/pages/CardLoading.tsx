@@ -65,7 +65,10 @@ export default function CardLoading() {
           </div>
         </div>
 
-        <div className="cl-footer-bottom">© 2020 Lift Media. All rights reserved.</div>
+        <div className="cl-footer-bottom footer-bottom">
+          © 2026 Chuks Kitchen. All rights reserved. <br />
+          Designed & Developed by <span className="brand-name">BCodeStack</span>
+        </div>
       </footer>
 
       <a className="cl-float" href="#top" aria-label="Scroll to top">

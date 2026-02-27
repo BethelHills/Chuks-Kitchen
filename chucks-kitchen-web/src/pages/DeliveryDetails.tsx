@@ -94,7 +94,10 @@ export default function DeliveryDetails() {
           </div>
         </div>
 
-        <div className="dd-footer-bottom">© 2026 Chuck's Kitchen. All rights reserved.</div>
+        <div className="dd-footer-bottom footer-bottom">
+          © 2026 Chuks Kitchen. All rights reserved. <br />
+          Designed & Developed by <span className="brand-name">BCodeStack</span>
+        </div>
       </footer>
 
       <a className="dd-float" href="#top" aria-label="Scroll to top">

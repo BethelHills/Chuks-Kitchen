@@ -160,7 +160,10 @@ export default function Cart() {
           </div>
         </div>
 
-        <div className="ct-footer-bottom">© 2026 Chuck's Kitchen. All rights reserved.</div>
+        <div className="ct-footer-bottom footer-bottom">
+          © 2026 Chuks Kitchen. All rights reserved. <br />
+          Designed & Developed by <span className="brand-name">BCodeStack</span>
+        </div>
       </footer>
 
       <a className="ct-float" href="#top" aria-label="Scroll to top">↑</a>

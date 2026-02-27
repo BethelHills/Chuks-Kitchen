@@ -86,7 +86,10 @@ export default function OrderComplete() {
           </div>
         </div>
 
-        <div className="oc-footer-bottom">© 2020 Lift Media. All rights reserved.</div>
+        <div className="oc-footer-bottom footer-bottom">
+          © 2026 Chuks Kitchen. All rights reserved. <br />
+          Designed & Developed by <span className="brand-name">BCodeStack</span>
+        </div>
       </footer>
 
       <a className="oc-float" href="#top" aria-label="Scroll to top">

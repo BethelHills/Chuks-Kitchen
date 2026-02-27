@@ -39,7 +39,8 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        © {new Date().getFullYear()} Chuck's Kitchen. All rights reserved.
+        © 2026 Chuks Kitchen. All rights reserved. <br />
+        Designed & Developed by <span className="brand-name">BCodeStack</span>
       </div>
     </footer>
   );

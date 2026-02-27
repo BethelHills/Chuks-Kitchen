@@ -257,7 +257,10 @@ export default function Explore() {
           </div>
         </div>
 
-        <div className="ex-footer-bottom">© 2026 Chuck's Kitchen. All rights reserved.</div>
+        <div className="ex-footer-bottom footer-bottom">
+          © 2026 Chuks Kitchen. All rights reserved. <br />
+          Designed & Developed by <span className="brand-name">BCodeStack</span>
+        </div>
       </footer>
 
       <a className="ex-float" href="#top" aria-label="Scroll to top">↑</a>

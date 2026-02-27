@@ -111,8 +111,9 @@ export default function Onboarding() {
           </div>
         </div>
 
-        <div className="auth-footer-bottom">
-          © 2020 Lift Media. All rights reserved.
+        <div className="auth-footer-bottom footer-bottom">
+          © 2026 Chuks Kitchen. All rights reserved. <br />
+          Designed & Developed by <span className="brand-name">BCodeStack</span>
         </div>
       </footer>
 
