@@ -67,14 +67,19 @@
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Signin: show signin screen.jpg clearly - cover to fill, center people & food */
+/* Signin: signin screen.jpg - man, woman, food on table */
 .auth-left-signin {
-  background-color: #f8f8f8;
+  background-color: #1a1a1a;
+  background-image: url("/images/signin%20screen.jpg");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
 }
 .auth-left-signin .auth-left-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center center;
 }
