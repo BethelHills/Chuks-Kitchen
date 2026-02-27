@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/auth.css";
+import { IMAGES } from "@/lib/images";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -7,15 +8,12 @@ export default function Login() {
   return (
     <div className="auth-page" id="top">
       <section className="auth-card">
-        {/* LEFT IMAGE SIDE - signin screen.jpg (man, woman, food on table) */}
+        {/* LEFT IMAGE SIDE - signin screen.jpg from public/images */}
         <div className="auth-left auth-left-signin">
           <img
-            src="/images/signin%20screen.jpg"
+            src={IMAGES.signin}
             alt="Chuks Kitchen - Family enjoying Nigerian meals at table"
             className="auth-left-img"
-            onError={(e) => {
-              e.currentTarget.src = "/images/signin-screen.jpg";
-            }}
           />
           <div className="auth-left-content">
             <h1 className="auth-brand">Chuks Kitchen</h1>

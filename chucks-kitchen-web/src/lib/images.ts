@@ -17,6 +17,6 @@ export const IMAGES = {
   meal1: `${base}/meal-jollof-fried.jpg`,
   meal7: `${base}/meal-egusi.jpg`,
   signup: `${base}/signup.jpg`,
-  signin: `${base}/signin-screen.jpg`,
+  signin: `${base}/signin%20screen.jpg`,
   onboarding: `${base}/Onboarding%20%3A%20Welcome%20Responsive.jpg`,
 };
