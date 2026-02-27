@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "../styles/auth.css";
 
 // Replace signup.jpg in public/images/ then increment ?v= to force browser to load new image
-const signupBgUrl = `${import.meta.env.BASE_URL || ""}images/signup.jpg?v=3`;
+const signupBgUrl = `${import.meta.env.BASE_URL || ""}images/signup.jpg?v=4`;
 
 export default function Signup() {
   return (
