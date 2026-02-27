@@ -1,83 +1,125 @@
-import { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import { Link, useNavigate } from "react-router-dom";
+import "../styles/auth.css";
+import { IMAGES } from "@/lib/images";
 
-const Login = () => {
-  const [isLogin, setIsLogin] = useState(true);
+export default function Login() {
   const navigate = useNavigate();
 
   return (
-    <div className="flex min-h-screen flex-col bg-background px-5 pt-12">
-      <h1 className="font-display text-2xl font-bold text-foreground">
-        {isLogin ? 'Login your Account' : 'Create Your Account'}
-      </h1>
-      <p className="mt-1 text-sm text-muted-foreground">
-        {isLogin ? 'Enter your details to sign in' : 'Fill in your details to get started'}
-      </p>
-
-      <div className="mt-8 space-y-4">
-        {!isLogin && (
-          <div>
-            <label className="text-sm font-medium text-foreground">Username</label>
-            <Input placeholder="Your full name" className="mt-1 rounded-lg border-border" />
-          </div>
-        )}
-        <div>
-          <label className="text-sm font-medium text-foreground">Email</label>
-          <Input type="email" placeholder="you@email.com" className="mt-1 rounded-lg border-border" />
-        </div>
-        <div>
-          <label className="text-sm font-medium text-foreground">
-            {isLogin ? 'Password' : 'Phone number'}
-          </label>
-          <Input
-            type={isLogin ? 'password' : 'tel'}
-            placeholder={isLogin ? '••••••••' : '+234 812 345 6789'}
-            className="mt-1 rounded-lg border-border"
+    <div className="auth-page" id="top">
+      <section className="auth-card">
+        {/* LEFT IMAGE SIDE - signin screen.jpg */}
+        <div className="auth-left auth-left-signin">
+          <img
+            src={IMAGES.signin}
+            alt="Chuks Kitchen - Sign in for delicious Nigerian meals"
+            className="auth-left-img"
+            onError={(e) => {
+              e.currentTarget.src = "/images/signin%20screen.jpg";
+            }}
           />
+          <div className="auth-left-content">
+            <h1 className="auth-brand">Chuks Kitchen</h1>
+            <p className="auth-left-text">
+              Your journey to delicious, authentic Nigerian meals starts here.
+              Sign up or log in to order your favorites today!
+            </p>
+          </div>
         </div>
-        {!isLogin && (
-          <>
-            <div>
-              <label className="text-sm font-medium text-foreground">Create password</label>
-              <Input type="password" placeholder="••••••••" className="mt-1 rounded-lg border-border" />
-            </div>
-            <div>
-              <label className="text-sm font-medium text-foreground">Confirm password</label>
-              <Input type="password" placeholder="••••••••" className="mt-1 rounded-lg border-border" />
-            </div>
-          </>
-        )}
-      </div>
 
-      <Button
-        onClick={() => navigate('/menu')}
-        className="mt-6 w-full rounded-full bg-primary py-6 text-base font-semibold text-primary-foreground hover:bg-primary/90"
-      >
-        {isLogin ? 'Login' : 'Continue'}
-      </Button>
+        {/* RIGHT FORM SIDE */}
+        <div className="auth-right">
+          <div className="auth-form">
+            <div className="auth-logo-small">Chuks Kitchen</div>
+            <h2 className="auth-title">Login your Account</h2>
 
-      <div className="mt-6 space-y-3">
-        <Button variant="outline" className="w-full rounded-full border-border py-5 text-foreground">
-          Continue with Google
-        </Button>
-        <Button variant="outline" className="w-full rounded-full border-border py-5 text-foreground">
-          Continue with Apple
-        </Button>
-      </div>
+            <form>
+              <div className="auth-field">
+                <label>Email or phone number</label>
+                <input type="email" placeholder="name@gmail.com" />
+              </div>
 
-      <p className="mt-6 text-center text-sm text-muted-foreground">
-        {isLogin ? "Don't have an account? " : 'Already have an account? '}
-        <button
-          onClick={() => setIsLogin(!isLogin)}
-          className="font-semibold text-primary"
-        >
-          {isLogin ? 'Sign Up' : 'Sign In'}
-        </button>
-      </p>
+              <div className="auth-field">
+                <label>Password</label>
+                <input type="password" placeholder="••••••••" />
+              </div>
+
+              <div className="auth-row">
+                <div />
+                <Link to="#" className="auth-link">Forgot Password</Link>
+              </div>
+
+              <button
+                type="button"
+                className="auth-btn-primary"
+                onClick={() => navigate("/home")}
+              >
+                Continue
+              </button>
+
+              <div className="auth-divider">Or continue with</div>
+
+              <button type="button" className="auth-btn-social">
+                Continue with Google
+              </button>
+
+              <button type="button" className="auth-btn-social">
+                Continue with Apple
+              </button>
+
+              <p className="auth-alt">
+                Do not have an account?{" "}
+                <Link to="/signup" className="auth-link">
+                  Create account
+                </Link>
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="auth-footer">
+        <div className="auth-footer-inner">
+          <div className="auth-footer-col">
+            <div className="auth-footer-logo">Chuks Kitchen</div>
+            <p>
+              Bringing the authentic flavors of Nigerian home cooking to your
+              table, with passion and care.
+            </p>
+          </div>
+
+          <div className="auth-footer-col">
+            <h4>Quick Links</h4>
+            <a href="#">Home</a>
+            <a href="#">Explore</a>
+            <a href="#">My Order</a>
+            <a href="#">Account</a>
+            <a href="#">Contact</a>
+          </div>
+
+          <div className="auth-footer-col">
+            <h4>Contact Us</h4>
+            <a href="#">+234 801 234 5678</a>
+            <a href="#">hello@chuckskitchen.com</a>
+            <a href="#">123 Taste Blvd, Lagos, Nigeria</a>
+          </div>
+
+          <div className="auth-footer-col auth-social">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Linkedin</a>
+            <a href="#">Instagram</a>
+          </div>
+        </div>
+
+        <div className="auth-footer-bottom footer-bottom">
+          © 2026 Chuks Kitchen. All rights reserved. <br />
+          Designed & Developed by <span className="brand-name">BCodeStack</span>
+        </div>
+      </footer>
+
+      <a href="#top" className="auth-scroll" aria-label="Scroll to top">↑</a>
     </div>
   );
-};
-
-export default Login;
+}

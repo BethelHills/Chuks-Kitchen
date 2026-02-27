@@ -67,6 +67,18 @@
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Signin: show full image clearly, exactly as it appears - no cropping */
+.auth-left-signin {
+  background: #f8f8f8;
+}
+.auth-left-signin .auth-left-img {
+  object-fit: contain;
+  object-position: center center;
+}
+.auth-left-signin .auth-left-content {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
 /* Signup: show full image clearly, exactly as it appears - no cropping */
 .auth-left-signup {
   background: #f8f8f8;
