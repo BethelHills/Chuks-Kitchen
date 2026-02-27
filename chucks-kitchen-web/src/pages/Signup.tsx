@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "../styles/auth.css";
-import { IMAGES } from "@/lib/images";
 
 export default function Signup() {
   return (
@@ -9,12 +8,9 @@ export default function Signup() {
         {/* LEFT IMAGE SIDE */}
         <div className="auth-left">
           <img
-            src={IMAGES.signup}
+            src="/images/signup.jpg"
             alt="Chuks Kitchen"
             className="auth-left-img"
-            onError={(e) => {
-              e.currentTarget.src = "/images/signup.jpg";
-            }}
           />
           <div className="auth-overlay" />
           <div className="auth-left-content">
