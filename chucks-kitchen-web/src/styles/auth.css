@@ -15,7 +15,6 @@
   display: flex;
   flex-direction: column;
   background: var(--bg);
-  padding: 0 16px;
 }
 
 .auth-card {
@@ -25,13 +24,20 @@
   grid-template-rows: 1fr;
   min-height: min(680px, 80vh);
   max-width: 1150px;
-  width: 100%;
-  margin: 26px auto;
+  width: calc(100% - 32px);
+  margin: 26px 16px 0;
   border-radius: 18px;
   overflow: hidden;
   background: #fff;
   align-items: stretch;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.auth-card-login {
+  grid-template-columns: 1fr;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .auth-left {
@@ -366,13 +372,16 @@
 .auth-footer {
   background: var(--brown);
   color: rgba(255, 255, 255, 0.92);
+  width: 100%;
 }
 
 .auth-footer-inner {
-  padding: 32px 24px 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 42px 18px;
   display: grid;
-  grid-template-columns: 1.3fr 1fr 1fr 0.8fr;
-  gap: 24px;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 36px;
 }
 
 .auth-footer-col {
@@ -382,9 +391,9 @@
 }
 
 .auth-footer-col a {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .auth-footer-col a:hover {
@@ -393,22 +402,28 @@
 
 .auth-footer-logo {
   font-family: "Island Moments", cursive;
-  font-size: 28px;
+  font-size: 30px;
   color: var(--orange);
-  margin-bottom: 4px;
+  margin-bottom: 10px;
+  text-decoration: none;
+  display: inline-block;
+}
+.auth-footer-logo:hover {
+  color: var(--orange);
 }
 
 .auth-footer-col p {
   margin: 0;
   font-size: 13px;
-  line-height: 1.6;
+  line-height: 1.7;
+  max-width: 320px;
   color: rgba(255, 255, 255, 0.85);
 }
 
 .auth-footer-col h4 {
-  margin: 0 0 8px;
+  margin: 0 0 12px;
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 1000;
   color: #fff;
 }
 
@@ -417,9 +432,11 @@
 }
 
 .auth-footer-bottom {
-  padding: 12px 24px 20px;
-  font-size: 11px;
-  color: rgba(255, 255, 255, 0.6);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 18px 26px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.65);
   text-align: center;
 }
 
@@ -448,7 +465,7 @@
   .auth-card {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
-    margin: 16px auto;
+    margin: 16px 16px 0;
   }
 
   .auth-left {
@@ -471,12 +488,9 @@
 }
 
 @media (max-width: 560px) {
-  .auth-page {
-    padding: 0 12px;
-  }
-
   .auth-card {
-    margin: 12px auto;
+    width: calc(100% - 24px);
+    margin: 12px 12px 0;
     border-radius: 14px;
   }
 

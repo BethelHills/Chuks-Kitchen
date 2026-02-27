@@ -76,11 +76,11 @@ export default function Onboarding() {
         </div>
       </section>
 
-      {/* FOOTER - same as Signup */}
+      {/* FOOTER - matches Home, Explore */}
       <footer className="auth-footer">
         <div className="auth-footer-inner">
           <div className="auth-footer-col">
-            <div className="auth-footer-logo">Chuks Kitchen</div>
+            <Link to="/" className="auth-footer-logo">Chuks Kitchen</Link>
             <p>
               Bringing the authentic flavors of Nigerian home cooking to your
               table, with passion and care.
@@ -89,25 +89,25 @@ export default function Onboarding() {
 
           <div className="auth-footer-col">
             <h4>Quick Links</h4>
-            <a href="#">Home</a>
-            <a href="#">Explore</a>
-            <a href="#">My Order</a>
-            <a href="#">Account</a>
+            <Link to="/home">Home</Link>
+            <Link to="/explore">Explore</Link>
+            <Link to="/orders">My Order</Link>
+            <Link to="/account">Account</Link>
             <a href="#">Contact</a>
           </div>
 
           <div className="auth-footer-col">
             <h4>Contact Us</h4>
-            <a href="#">+234 801 234 5678</a>
-            <a href="#">hello@chuckskitchen.com</a>
-            <a href="#">123 Taste Blvd, Lagos, Nigeria</a>
+            <a href="tel:+2348012345678">+234 801 234 5678</a>
+            <a href="mailto:hello@chuckskitchen.com">hello@chuckskitchen.com</a>
+            <span>123 Taste Blvd, Lagos, Nigeria</span>
           </div>
 
-          <div className="auth-footer-col auth-social">
+          <div className="auth-footer-col">
+            <h4>Follow</h4>
             <a href="#">Facebook</a>
-            <a href="#">Twitter</a>
-            <a href="#">Linkedin</a>
             <a href="#">Instagram</a>
+            <a href="#">Twitter</a>
           </div>
         </div>
 

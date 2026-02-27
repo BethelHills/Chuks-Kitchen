@@ -6,24 +6,7 @@ export default function Login() {
 
   return (
     <div className="auth-page" id="top">
-      <section className="auth-card">
-        {/* LEFT IMAGE SIDE - signin screen.jpg from public/images */}
-        <div className="auth-left auth-left-signin">
-          <img
-            src="/images/signin-screen.jpg"
-            alt="Chuks Kitchen - Family enjoying Nigerian meals at table"
-            className="auth-left-img"
-          />
-          <div className="auth-left-content">
-            <h1 className="auth-brand">Chuks Kitchen</h1>
-            <p className="auth-left-text">
-              Your journey to delicious, authentic Nigerian meals starts here.
-              Sign up or log in to order your favorites today!
-            </p>
-          </div>
-        </div>
-
-        {/* RIGHT FORM SIDE */}
+      <section className="auth-card auth-card-login">
         <div className="auth-right">
           <div className="auth-form">
             <div className="auth-logo-small">Chuks Kitchen</div>
