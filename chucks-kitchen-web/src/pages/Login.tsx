@@ -8,16 +8,13 @@ export default function Login() {
   return (
     <div className="auth-page" id="top">
       <section className="auth-card">
-        {/* LEFT IMAGE SIDE - signin screen.jpg */}
-        <div className="auth-left auth-left-signin">
-          <img
-            src={IMAGES.signin}
-            alt="Chuks Kitchen - Sign in for delicious Nigerian meals"
-            className="auth-left-img"
-            onError={(e) => {
-              e.currentTarget.src = "/images/signin%20screen.jpg";
-            }}
-          />
+        {/* LEFT IMAGE SIDE - signin screen.jpg (man, woman, food on table) */}
+        <div
+          className="auth-left auth-left-signin"
+          style={{ backgroundImage: `url("${IMAGES.signin}")` }}
+          role="img"
+          aria-label="Chuks Kitchen - Family enjoying Nigerian meals"
+        >
           <div className="auth-left-content">
             <h1 className="auth-brand">Chuks Kitchen</h1>
             <p className="auth-left-text">

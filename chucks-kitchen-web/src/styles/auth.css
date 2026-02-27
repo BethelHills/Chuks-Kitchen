@@ -67,12 +67,15 @@
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-/* Signin: show full image clearly, exactly as it appears - no cropping */
+/* Signin: show signin screen.jpg clearly - cover to fill, center people & food */
 .auth-left-signin {
-  background: #f8f8f8;
+  background-color: #f8f8f8;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 .auth-left-signin .auth-left-img {
-  object-fit: contain;
+  object-fit: cover;
   object-position: center center;
 }
 .auth-left-signin .auth-left-content {
