@@ -15,6 +15,7 @@
   display: flex;
   flex-direction: column;
   background: var(--bg);
+  padding: 0 16px;
 }
 
 .auth-card {
@@ -23,9 +24,14 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
   min-height: min(680px, 80vh);
+  max-width: 1150px;
+  width: 100%;
+  margin: 26px auto;
+  border-radius: 18px;
   overflow: hidden;
   background: #fff;
   align-items: stretch;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
 .auth-left {
@@ -422,6 +428,7 @@
   .auth-card {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
+    margin: 16px auto;
   }
 
   .auth-left {
@@ -444,6 +451,15 @@
 }
 
 @media (max-width: 560px) {
+  .auth-page {
+    padding: 0 12px;
+  }
+
+  .auth-card {
+    margin: 12px auto;
+    border-radius: 14px;
+  }
+
   .auth-left {
     min-height: 220px;
   }
