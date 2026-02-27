@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import { useCart, menuItems } from "@/lib/store";
 import "../styles/home.css";
 
 export default function Home() {
+  const addItem = useCart((s) => s.addItem);
+
   const categories = [
     { title: "Jollof Delights", img: "/images/cat-jollof.jpg" },
     { title: "Swallow & Soups", img: "/images/cat-swallow.jpg" },
@@ -12,42 +15,12 @@ export default function Home() {
   ];
 
   const specials = [
-    {
-      title: "Spicy Tilapia Pepper Soup",
-      desc: "A comforting and spicy soup with tender tilapia fish, a true Nigerian delicacy.",
-      price: "₦3,500",
-      img: "/images/meal-pepper-soup.jpg",
-    },
-    {
-      title: "Jollof Rice & Fried Chicken",
-      desc: "Our signature Jollof rice, cooked to perfection, served with succulent fried chicken.",
-      price: "₦3,500",
-      img: "/images/meal-jollof-fried.jpg",
-    },
-    {
-      title: "Jollof Rice & Fried Chicken",
-      desc: "Our signature Jollof rice, cooked to perfection, served with succulent fried chicken.",
-      price: "₦3,500",
-      img: "/images/meal-jollof-fried.jpg",
-    },
-    {
-      title: "Jollof Rice & Smoked Chicken",
-      desc: "Our signature Jollof rice paired with tender smoked chicken for deep flavor.",
-      price: "₦3,500",
-      img: "/images/meal-jollof-smoked.jpg",
-    },
-    {
-      title: "Jollof Rice & Fried Chicken",
-      desc: "Our signature Jollof rice, cooked to perfection, served with succulent fried chicken.",
-      price: "₦3,500",
-      img: "/images/meal-jollof-fried.jpg",
-    },
-    {
-      title: "Egusi Soup & Pounded Yam",
-      desc: "Rich and savory egusi soup with assorted meats, paired with freshly pounded yam.",
-      price: "₦3,500",
-      img: "/images/meal-egusi.jpg",
-    },
+    { id: "2", title: "Spicy Tilapia Pepper Soup", desc: "A comforting and spicy soup with tender tilapia fish, a true Nigerian delicacy.", price: "₦3,500", img: "/images/meal-pepper-soup.jpg" },
+    { id: "1", title: "Jollof Rice & Fried Chicken", desc: "Our signature Jollof rice, cooked to perfection, served with succulent fried chicken.", price: "₦3,500", img: "/images/meal-jollof-fried.jpg" },
+    { id: "1", title: "Jollof Rice & Fried Chicken", desc: "Our signature Jollof rice, cooked to perfection, served with succulent fried chicken.", price: "₦3,500", img: "/images/meal-jollof-fried.jpg" },
+    { id: "1", title: "Jollof Rice & Smoked Chicken", desc: "Our signature Jollof rice paired with tender smoked chicken for deep flavor.", price: "₦3,500", img: "/images/meal-jollof-smoked.jpg" },
+    { id: "1", title: "Jollof Rice & Fried Chicken", desc: "Our signature Jollof rice, cooked to perfection, served with succulent fried chicken.", price: "₦3,500", img: "/images/meal-jollof-fried.jpg" },
+    { id: "3", title: "Egusi Soup & Pounded Yam", desc: "Rich and savory egusi soup with assorted meats, paired with freshly pounded yam.", price: "₦3,500", img: "/images/meal-egusi.jpg" },
   ];
 
   return (
@@ -106,21 +79,31 @@ export default function Home() {
         <h2 className="hm-title">Chef's Specials</h2>
 
         <div className="hm-grid hm-grid-meals">
-          {specials.map((m, i) => (
-            <div className="hm-meal" key={i}>
-              <img className="hm-meal-img" src={m.img} alt={m.title} />
+          {specials.map((m, i) => {
+            const menuItem = menuItems.find((mi) => mi.id === m.id) || menuItems[0];
+            return (
+              <div className="hm-meal" key={i}>
+                <Link to={`/food/${menuItem.id}`} className="hm-meal-img-wrap">
+                  <img className="hm-meal-img" src={m.img} alt={m.title} />
+                </Link>
 
-              <div className="hm-meal-body">
-                <div className="hm-meal-title">{m.title}</div>
-                <div className="hm-meal-desc">{m.desc}</div>
+                <div className="hm-meal-body">
+                  <Link to={`/food/${menuItem.id}`} className="hm-meal-title">{m.title}</Link>
+                  <div className="hm-meal-desc">{m.desc}</div>
 
-                <div className="hm-meal-bottom">
-                  <div className="hm-price">{m.price}</div>
-                  <button className="hm-add">Add to cart</button>
+                  <div className="hm-meal-bottom">
+                    <div className="hm-price">{m.price}</div>
+                    <button
+                      className="hm-add"
+                      onClick={() => addItem({ menuItem, quantity: 1 })}
+                    >
+                      Add to cart
+                    </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 

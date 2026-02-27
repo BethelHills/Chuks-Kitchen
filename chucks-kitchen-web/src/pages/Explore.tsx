@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import { useCart, menuItems } from "@/lib/store";
 import "../styles/explore.css";
 
 type Item = {
+  id: string;
   title: string;
   desc: string;
   price: string;
@@ -10,36 +12,42 @@ type Item = {
 
 const popular: Item[] = [
   {
+    id: "1",
     title: "Jollof Rice & Fried Chicken",
     desc: "Our signature Jollof rice, served with crispy fried chicken and plantain.",
     price: "₦3,500",
     img: "/images/Jollof Rice & Fried Chicken.jpg",
   },
   {
+    id: "3",
     title: "Eba & Egusi Soup (Goat Meat)",
     desc: "Hearty Egusi soup with tender goat meat, served with soft Eba.",
     price: "₦3,500",
     img: "/images/Eba & Egusi Soup (Goat Meat).jpg",
   },
   {
+    id: "3",
     title: "Pounded Yam & Edikaikong",
     desc: "Traditional pounded yam with rich, leafy Edikaikong soup.",
     price: "₦3,800",
     img: "/images/Pounded Yam & Edikaikong.jpg",
   },
   {
+    id: "4",
     title: "Peppered Snail",
     desc: "Spicy and savory peppered snail, perfect as a starter.",
     price: "₦2,500",
     img: "/images/Peppered Snail.jpg",
   },
   {
+    id: "2",
     title: "Grilled Tilapia Fish",
     desc: "Whole grilled tilapia seasoned with our special spices.",
     price: "₦4,500",
     img: "/images/Grilled Tilapia Fish.jpg",
   },
   {
+    id: "1",
     title: "Jollof Rice & Fried Chicken",
     desc: "Our signature Jollof rice, served with crispy fried chicken and plantain.",
     price: "₦3,500",
@@ -49,18 +57,21 @@ const popular: Item[] = [
 
 const jollof: Item[] = [
   {
+    id: "1",
     title: "Jollof Rice & Smoked Fish",
     desc: "Flavorful jollof rice served with perfectly smoked fish.",
     price: "₦3,500",
     img: "/images/Jollof Rice & Smoked Fish.jpg",
   },
   {
+    id: "1",
     title: "Party Jollof Rice (Veg)",
     desc: "Vegetarian party jollof, full of rich flavors.",
     price: "₦2,800",
     img: "/images/Jollof Rice.jpg",
   },
   {
+    id: "1",
     title: "Party Jollof Rice (Veg)",
     desc: "Vegetarian party jollof, full of rich flavors.",
     price: "₦3,500",
@@ -70,18 +81,21 @@ const jollof: Item[] = [
 
 const swallow: Item[] = [
   {
+    id: "3",
     title: "Amala with Gbegiri & Ewedu",
     desc: "Classic Amala served with Gbegiri (beans) and Ewedu (jute leaf) soup.",
     price: "₦3,100",
     img: "/images/Amala with Gbegiri & Ewedu.jpg",
   },
   {
+    id: "3",
     title: "Fufu & Okra Soup (Fish)",
     desc: "Light Fufu served with fresh okra soup and tilapia fish.",
     price: "₦3,300",
     img: "/images/Fufu & Okra Soup (Fish).jpg",
   },
   {
+    id: "3",
     title: "Fufu & Okra Soup (Fish)",
     desc: "Light Fufu served with fresh okra soup and tilapia fish.",
     price: "₦3,500",
@@ -89,17 +103,28 @@ const swallow: Item[] = [
   },
 ];
 
-function FoodCard({ item }: { item: Item }) {
+function FoodCard({ item, onAddToCart }: { item: Item; onAddToCart: (id: string) => void }) {
+  const menuItem = menuItems.find((m) => m.id === item.id) || menuItems[0];
   return (
     <div className="ex-card">
-      <img className="ex-card-img" src={encodeURI(item.img)} alt={item.title} />
+      <Link to={`/food/${menuItem.id}`} className="ex-card-img-wrap">
+        <img className="ex-card-img" src={encodeURI(item.img)} alt={item.title} />
+      </Link>
       <div className="ex-card-body">
-        <div className="ex-card-title">{item.title}</div>
+        <Link to={`/food/${menuItem.id}`} className="ex-card-title">{item.title}</Link>
         <div className="ex-card-desc">{item.desc}</div>
 
         <div className="ex-card-bottom">
           <div className="ex-price">{item.price}</div>
-          <button className="ex-plus" type="button" aria-label="Add to cart">
+          <button
+            className="ex-plus"
+            type="button"
+            aria-label="Add to cart"
+            onClick={(e) => {
+              e.preventDefault();
+              onAddToCart(item.id);
+            }}
+          >
             +
           </button>
         </div>
@@ -109,6 +134,13 @@ function FoodCard({ item }: { item: Item }) {
 }
 
 export default function Explore() {
+  const addItem = useCart((s) => s.addItem);
+
+  const handleAddToCart = (id: string) => {
+    const menuItem = menuItems.find((m) => m.id === id) || menuItems[0];
+    addItem({ menuItem, quantity: 1 });
+  };
+
   return (
     <div className="ex" id="top">
       {/* NAV */}
@@ -159,7 +191,7 @@ export default function Explore() {
             <h2 className="ex-h2">Popular</h2>
             <div className="ex-grid">
               {popular.map((item, i) => (
-                <FoodCard key={i} item={item} />
+                <FoodCard key={i} item={item} onAddToCart={handleAddToCart} />
               ))}
             </div>
           </section>
@@ -168,7 +200,7 @@ export default function Explore() {
             <h2 className="ex-h2">Jollof Rice &amp; Entrees</h2>
             <div className="ex-grid">
               {jollof.map((item, i) => (
-                <FoodCard key={i} item={item} />
+                <FoodCard key={i} item={item} onAddToCart={handleAddToCart} />
               ))}
             </div>
           </section>
@@ -177,7 +209,7 @@ export default function Explore() {
             <h2 className="ex-h2">Swallow &amp; Soups</h2>
             <div className="ex-grid">
               {swallow.map((item, i) => (
-                <FoodCard key={i} item={item} />
+                <FoodCard key={i} item={item} onAddToCart={handleAddToCart} />
               ))}
             </div>
           </section>

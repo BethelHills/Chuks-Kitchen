@@ -1,75 +1,54 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
+import { useCart } from "@/lib/store";
 import "../styles/cart.css";
-
-type CartItem = {
-  id: string;
-  title: string;
-  note: string;
-  price: number;
-  qty: number;
-  img: string;
-};
 
 function money(n: number) {
   return `₦${n.toLocaleString("en-NG")}`;
 }
 
 export default function Cart() {
-  const [items, setItems] = useState<CartItem[]>([
-    {
-      id: "1",
-      title: "Jollof Rice & Fried Chicken",
-      note: "With plantain, extra pepper sauce",
-      price: 3200,
-      qty: 1,
-      img: "/images/Jollof Rice & Fried Chicken.jpg",
-    },
-    {
-      id: "2",
-      title: "Jollof Rice & Fried Chicken",
-      note: "With plantain, extra pepper sauce",
-      price: 3200,
-      qty: 1,
-      img: "/images/meal-jollof-fried.jpg",
-    },
-    {
-      id: "3",
-      title: "Jollof Rice & Fried Chicken",
-      note: "With plantain, extra pepper sauce",
-      price: 3200,
-      qty: 1,
-      img: "/images/meal-jollof-smoked.jpg",
-    },
-    {
-      id: "4",
-      title: "Jollof Rice & Fried Chicken",
-      note: "With plantain, extra pepper sauce",
-      price: 3200,
-      qty: 1,
-      img: "/images/meal-egusi.jpg",
-    },
-  ]);
+  const { items, removeItem, updateQuantity, total } = useCart();
+  const totalAmount = total();
 
-  const total = useMemo(
-    () => items.reduce((sum, it) => sum + it.price * it.qty, 0),
-    [items]
-  );
+  const inc = (id: string) => {
+    const item = items.find((i) => i.menuItem.id === id);
+    if (item) updateQuantity(id, item.quantity + 1);
+  };
 
-  const inc = (id: string) =>
-    setItems((prev) =>
-      prev.map((it) => (it.id === id ? { ...it, qty: it.qty + 1 } : it))
+  const dec = (id: string) => {
+    const item = items.find((i) => i.menuItem.id === id);
+    if (item) {
+      if (item.quantity > 1) updateQuantity(id, item.quantity - 1);
+      else removeItem(id);
+    }
+  };
+
+  if (items.length === 0) {
+    return (
+      <div className="ct" id="top">
+        <header className="ct-nav">
+          <div className="ct-nav-inner">
+            <Link to="/" className="ct-logo">Chuks Kitchen</Link>
+            <nav className="ct-links">
+              <Link className="ct-link" to="/home">Home</Link>
+              <Link className="ct-link" to="/explore">Explore</Link>
+              <Link className="ct-link active" to="/cart">My Orders</Link>
+              <Link className="ct-link" to="/account">Account</Link>
+            </nav>
+            <Link to="/login" className="ct-login">Login</Link>
+          </div>
+        </header>
+        <main className="ct-wrap">
+          <h1 className="ct-title">Your Cart</h1>
+          <div className="ct-empty">
+            <p>Your cart is empty.</p>
+            <Link to="/menu" className="ct-more">+ Add items from Chuks Kitchen</Link>
+          </div>
+        </main>
+      </div>
     );
-
-  const dec = (id: string) =>
-    setItems((prev) =>
-      prev.map((it) =>
-        it.id === id ? { ...it, qty: Math.max(1, it.qty - 1) } : it
-      )
-    );
-
-  const remove = (id: string) =>
-    setItems((prev) => prev.filter((it) => it.id !== id));
+  }
 
   return (
     <div className="ct" id="top">
@@ -94,33 +73,36 @@ export default function Cart() {
         <h1 className="ct-title">Your Cart</h1>
 
         <section className="ct-box">
-          {items.map((it) => (
-            <div className="ct-row" key={it.id}>
+          {items.map((ci) => (
+            <div className="ct-row" key={ci.menuItem.id}>
               <div className="ct-img">
-                <img src={encodeURI(it.img)} alt={it.title} />
+                <img src={String(ci.menuItem.image)} alt={ci.menuItem.name} />
               </div>
 
               <div className="ct-info">
-                <div className="ct-name">{it.title}</div>
-                <div className="ct-note">{it.note}</div>
+                <div className="ct-name">{ci.menuItem.name}</div>
+                <div className="ct-note">
+                  {ci.protein && `${ci.protein} • `}
+                  {ci.extras?.length ? ci.extras.join(", ") : "Default"}
+                </div>
               </div>
 
               <div className="ct-qty">
-                <button className="ct-btn" type="button" onClick={() => inc(it.id)}>
+                <button className="ct-btn" type="button" onClick={() => inc(ci.menuItem.id)}>
                   +
                 </button>
-                <div className="ct-count">{it.qty}</div>
-                <button className="ct-btn" type="button" onClick={() => dec(it.id)}>
+                <div className="ct-count">{ci.quantity}</div>
+                <button className="ct-btn" type="button" onClick={() => dec(ci.menuItem.id)}>
                   −
                 </button>
               </div>
 
-              <div className="ct-price">{money(it.price * it.qty)}</div>
+              <div className="ct-price">{money(ci.menuItem.price * ci.quantity)}</div>
 
               <button
                 className="ct-remove"
                 type="button"
-                onClick={() => remove(it.id)}
+                onClick={() => removeItem(ci.menuItem.id)}
                 aria-label="Remove item"
               >
                 ×
@@ -133,7 +115,7 @@ export default function Cart() {
           </Link>
         </section>
 
-        <div className="ct-total">Total: {money(total)}</div>
+        <div className="ct-total">Total: {money(totalAmount)}</div>
       </main>
 
       {/* FOOTER */}

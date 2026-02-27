@@ -1,4 +1,4 @@
-import { MenuItem } from '@/lib/store';
+import { MenuItem, useCart } from '@/lib/store';
 import { Link } from 'react-router-dom';
 
 interface FoodCardProps {
@@ -7,9 +7,20 @@ interface FoodCardProps {
 }
 
 const FoodCard = ({ item, variant = 'default' }: FoodCardProps) => {
+  const addItem = useCart((s) => s.addItem);
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addItem({
+      menuItem: item,
+      quantity: 1,
+    });
+  };
+
   if (variant === 'compact') {
     return (
-      <Link to={`/menu/${item.id}`} className="flex items-center gap-3 rounded-lg bg-card p-3 shadow-sm transition-shadow hover:shadow-md">
+      <Link to={`/food/${item.id}`} className="flex items-center gap-3 rounded-lg bg-card p-3 shadow-sm transition-shadow hover:shadow-md">
         <img
           src={item.image}
           alt={item.name}
@@ -26,12 +37,18 @@ const FoodCard = ({ item, variant = 'default' }: FoodCardProps) => {
           <p className="text-xs text-muted-foreground line-clamp-1">{item.description}</p>
           <p className="mt-1 text-sm font-bold text-primary">₦{item.price.toLocaleString()}</p>
         </div>
+        <button
+          onClick={handleAddToCart}
+          className="rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-primary-foreground hover:opacity-90"
+        >
+          Add to cart
+        </button>
       </Link>
     );
   }
 
   return (
-    <Link to={`/menu/${item.id}`} className="group block overflow-hidden rounded-xl bg-card shadow-sm transition-all hover:shadow-lg">
+    <Link to={`/food/${item.id}`} className="group block overflow-hidden rounded-xl bg-card shadow-sm transition-all hover:shadow-lg">
       <div className="aspect-[4/3] overflow-hidden">
         <img
           src={item.image}
@@ -50,9 +67,12 @@ const FoodCard = ({ item, variant = 'default' }: FoodCardProps) => {
         <p className="mt-1 text-sm text-muted-foreground line-clamp-2">{item.description}</p>
         <div className="mt-3 flex items-center justify-between">
           <span className="text-lg font-bold text-primary">₦{item.price.toLocaleString()}</span>
-          <span className="rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-primary-foreground transition-opacity group-hover:opacity-90">
+          <button
+            onClick={handleAddToCart}
+            className="rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
+          >
             Add to cart
-          </span>
+          </button>
         </div>
       </div>
     </Link>

@@ -166,6 +166,14 @@ a{ text-decoration:none; color:inherit; }
   font-weight: 800;
   color: var(--blue);
 }
+.ct-empty{
+  background:#fff;
+  border: 1px solid rgba(0,0,0,.06);
+  border-radius: 6px;
+  padding: 44px 22px;
+  text-align: center;
+}
+.ct-empty p{ margin: 0 0 16px; color: var(--muted); }
 
 .ct-total{
   margin-top: 14px;
