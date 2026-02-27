@@ -1,0 +1,221 @@
+:root{
+  --orange:#ff7a1a;
+  --blue:#1f6fff;
+  --bg:#efefef;
+  --brown:#5a3b2c;
+  --green:#0f6b35;
+}
+
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: var(--bg);
+  color:#111827;
+}
+a{ text-decoration:none; color:inherit; }
+
+.oc{ min-height:100vh; }
+
+/* NAV */
+.oc-nav{
+  background:#fff;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  position: sticky;
+  top:0;
+  z-index: 5;
+}
+.oc-nav-inner{
+  max-width: 1200px;
+  margin:0 auto;
+  padding: 14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.oc-logo{
+  font-family: "Island Moments", cursive;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 32px;
+  color: var(--orange);
+}
+.oc-links{
+  display:flex;
+  align-items:center;
+  gap: 30px;
+  font-size: 13px;
+  font-weight: 800;
+  color:#374151;
+}
+.oc-link{ opacity:.9; }
+
+.oc-login{
+  height: 44px;
+  padding: 0 34px;
+  border-radius: 8px;
+  border: none;
+  background: var(--orange);
+  color:#fff;
+  font-weight: 1000;
+  cursor:pointer;
+}
+
+/* BODY */
+.oc-wrap{
+  min-height: 720px; /* same big empty space */
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding: 160px 18px 120px;
+}
+
+.oc-center{
+  width: 520px;
+  text-align:center;
+}
+
+.oc-check{
+  width: 84px;
+  height: 84px;
+  border-radius: 999px;
+  background: var(--green);
+  margin: 0 auto 14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.oc-tick{
+  color:#fff;
+  font-size: 44px;
+  line-height: 1;
+  font-weight: 1000;
+  transform: translateY(-1px);
+}
+
+.oc-h1{
+  font-size: 13px;
+  font-weight: 1000;
+  margin: 6px 0 4px;
+}
+.oc-sub{
+  font-size: 12px;
+  color:#374151;
+  font-weight: 700;
+}
+
+.oc-dot{
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(34,197,94,.16); /* faint green dot */
+  margin: 54px auto 46px;
+}
+
+.oc-order{
+  font-size: 20px;
+  font-weight: 1000;
+  margin-bottom: 10px;
+}
+
+.oc-btn{
+  width: 330px;
+  height: 46px;
+  border:none;
+  border-radius: 6px;
+  background: var(--orange);
+  color:#fff;
+  font-weight: 1000;
+  cursor:pointer;
+  margin: 0 auto;
+  display:block;
+}
+
+.oc-receipt{
+  margin-top: 14px;
+  font-size: 12px;
+  font-weight: 900;
+  color:#b6b6b6;
+}
+
+.oc-help{
+  display:inline-block;
+  margin-top: 18px;
+  font-size: 12px;
+  font-weight: 1000;
+  color: var(--blue);
+}
+
+/* FOOTER */
+.oc-footer{
+  background: var(--brown);
+  color: rgba(255,255,255,.92);
+}
+.oc-footer-inner{
+  max-width: 1200px;
+  margin:0 auto;
+  padding: 42px 18px;
+  display:grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 36px;
+}
+.oc-footer-logo{
+  font-family: "Island Moments", cursive;
+  font-size: 30px;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+.oc-footer-text{
+  margin:0;
+  font-size: 13px;
+  line-height: 1.7;
+  max-width: 320px;
+}
+.oc-footer-title{
+  font-weight: 1000;
+  color:#fff;
+  margin-bottom: 12px;
+}
+.oc-footer-links{
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+  font-size: 12px;
+  color: rgba(255,255,255,.75);
+}
+.oc-footer-links a{ color: rgba(255,255,255,.75); }
+.oc-footer-links a:hover{ color:#fff; }
+.oc-social{ padding-top: 22px; }
+
+.oc-footer-bottom{
+  max-width: 1200px;
+  margin:0 auto;
+  padding: 14px 18px 26px;
+  font-size: 11px;
+  color: rgba(255,255,255,.65);
+}
+
+/* FLOAT */
+.oc-float{
+  position: fixed;
+  right: 30px;
+  bottom: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  background: var(--blue);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight: 1000;
+  box-shadow: 0 12px 30px rgba(0,0,0,.18);
+}
+
+/* RESPONSIVE */
+@media (max-width: 720px){
+  .oc-links{ display:none; }
+  .oc-center{ width: 100%; }
+  .oc-btn{ width: 100%; }
+  .oc-wrap{ padding-top: 120px; }
+}

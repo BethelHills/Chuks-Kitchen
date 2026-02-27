@@ -10,6 +10,8 @@ import Cart from "./pages/Cart";
 import OrderSummary from "./pages/OrderSummary";
 import DeliveryDetails from "./pages/DeliveryDetails";
 import PaymentOptions from "./pages/PaymentOptions";
+import CardLoading from "./pages/CardLoading";
+import OrderComplete from "./pages/OrderComplete";
 import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -39,6 +41,9 @@ const App = () => (
           <Route path="/order-summary" element={<OrderSummary />} />
           <Route path="/delivery-details" element={<DeliveryDetails />} />
           <Route path="/payment" element={<PaymentOptions />} />
+          <Route path="/card-loading" element={<CardLoading />} />
+          <Route path="/loading" element={<CardLoading />} />
+          <Route path="/order-complete" element={<OrderComplete />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
