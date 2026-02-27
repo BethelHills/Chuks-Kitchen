@@ -7,7 +7,7 @@ export default function Signup() {
     <div className="auth-page" id="top">
       <section className="auth-card">
         {/* LEFT IMAGE SIDE */}
-        <div className="auth-left">
+        <div className="auth-left auth-left-signup">
           <img
             src={IMAGES.signup}
             alt="Chuks Kitchen - Sign up for delicious Nigerian meals"
@@ -16,7 +16,6 @@ export default function Signup() {
               e.currentTarget.src = "/images/signup.jpg";
             }}
           />
-          <div className="auth-overlay" />
           <div className="auth-left-content">
             <h1 className="auth-brand">Chuks Kitchen</h1>
             <p className="auth-left-text">
