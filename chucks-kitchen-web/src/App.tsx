@@ -7,6 +7,7 @@ import Landing from "./pages/Landing";
 import Menu from "./pages/Menu";
 import FoodDetails from "./pages/FoodDetails";
 import Cart from "./pages/Cart";
+import OrderSummary from "./pages/OrderSummary";
 import Checkout from "./pages/Checkout";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/menu/:id" element={<FoodDetails />} />
           <Route path="/food/:id" element={<FoodDetails />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/order-summary" element={<OrderSummary />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />

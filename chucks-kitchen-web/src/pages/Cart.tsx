@@ -116,6 +116,7 @@ export default function Cart() {
         </section>
 
         <div className="ct-total">Total: {money(totalAmount)}</div>
+        <Link to="/order-summary" className="ct-checkout">Proceed to Order Summary</Link>
       </main>
 
       {/* FOOTER */}

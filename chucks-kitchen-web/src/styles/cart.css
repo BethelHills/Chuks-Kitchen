@@ -181,6 +181,18 @@ a{ text-decoration:none; color:inherit; }
   color:#111827;
   opacity:.75;
 }
+.ct-checkout{
+  display: block;
+  width: 100%;
+  margin-top: 18px;
+  padding: 16px;
+  text-align: center;
+  background: var(--orange);
+  color: #fff;
+  font-weight: 1000;
+  border-radius: 10px;
+}
+.ct-checkout:hover{ background: var(--orange2); }
 
 /* FOOTER */
 .ct-footer{
