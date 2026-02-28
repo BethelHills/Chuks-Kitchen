@@ -25,7 +25,7 @@
   min-height: min(680px, 80vh);
   max-width: 1150px;
   width: calc(100% - 32px);
-  margin: 26px 16px 0;
+  margin: 26px auto 0;
   border-radius: 18px;
   overflow: hidden;
   background: #fff;
@@ -465,7 +465,7 @@
   .auth-card {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
-    margin: 16px 16px 0;
+    margin: 16px auto 0;
   }
 
   .auth-left {
@@ -490,7 +490,7 @@
 @media (max-width: 560px) {
   .auth-card {
     width: calc(100% - 24px);
-    margin: 12px 12px 0;
+    margin: 12px auto 0;
     border-radius: 14px;
   }
 
